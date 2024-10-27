@@ -1,5 +1,6 @@
 import Home from "./components/Home"
 import Collections from "./components/Collections"
+import Footer from "./components/Footer"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
      <Home />
      <Collections />
+     <Footer />
     </>
   )
 }

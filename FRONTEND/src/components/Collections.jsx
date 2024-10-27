@@ -31,7 +31,7 @@ function Collections() {
           <div className='relative'>
             <img src="./assets/kid-card.jpg" alt="kid-collection-image" className='h-full w-full object-cover'/>
             <div className='absolute top-[60px] right-10 font-Cormorant'>
-              <h1 className='text-7xl text-red-900'>KID'S</h1>
+              <h1 className='text-7xl text-red-900'>KIDS'</h1>
               <h1 className='text-3xl'>COLLECTION</h1>
               <button 
               className="font-Cormorant mt-2 text-lg border border-black py-1 px-4 hover:bg-black hover:text-white transition-all">

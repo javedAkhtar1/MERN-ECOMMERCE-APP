@@ -28,11 +28,11 @@ function Footer() {
             </ul>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="font-Nunito font-semibold"> Connect </h2>
+            <h2 className="font-Nunito font-semibold"> Connect  </h2>
             <ul className="text-sm leading-8 hover:cursor-pointer">
-              <li className="hover:text-gray-700"> <XIcon/> </li>
-              <li className="hover:text-gray-700"><LinkedInIcon /></li>
-              <li className="hover:text-gray-700"> <InstagramIcon /> </li>
+              <li className="hover:text-gray-700"> <a href="https://x.com/javed999_" target="_blank"> <XIcon/> </a>  </li>
+              <li className="hover:text-gray-700"> <a href="https://www.linkedin.com/in/javed-akhtar-85012b2a3/" target="_blank"> <LinkedInIcon /> </a> </li>
+              <li className="hover:text-gray-700"> <a href="https://www.instagram.com/javed999_/" target="_blank"> <InstagramIcon /> </a> </li>
             </ul>
           </div>
         </footer>

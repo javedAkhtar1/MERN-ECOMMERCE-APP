@@ -46,7 +46,7 @@ function Collections() {
         </div>
 
         <div
-          ref={kidRef}
+          ref={kidRef} 
           className={`relative transform transition-all duration-700 ${
             kidInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}

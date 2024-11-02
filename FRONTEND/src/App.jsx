@@ -1,6 +1,7 @@
 import Home from "./components/Home"
 import Collections from "./components/Collections"
 import Footer from "./components/Footer"
+import FeaturedProducts from "./components/FeaturedProducts"
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
      <Home />
      <Collections />
+     <FeaturedProducts />
      <Footer />
     </>
   )

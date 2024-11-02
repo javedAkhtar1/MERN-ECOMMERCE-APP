@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 function Footer() {
   return (
     <>
-      <div className="mt-[100px] bg-gray-200">
+      <div className="mt-[30px] bg-gray-200">
         <footer className="flex justify-evenly  px-10 py-4">
           <div className="flex flex-col gap-2">
             <h2 className="font-Nunito font-semibold">Information</h2>

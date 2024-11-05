@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { useInView } from 'react-intersection-observer';
 
 function Home() {
-  // Track when the section is in view
   const { ref, inView } = useInView({ triggerOnce: true });
 
   return (

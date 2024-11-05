@@ -21,7 +21,7 @@ function Footer() {
           <div className="flex flex-col gap-2">
             <h2 className="font-Nunito font-semibold">Customer Service</h2>
             <ul className="text-sm leading-6 hover:cursor-pointer">
-              <li className="hover:text-gray-700">Help and Contact</li>
+              <li className="hover:text-gray-700">Help and Order</li>
               <li className="hover:text-gray-700">Return Policy</li>
               <li className="hover:text-gray-700">Terms and Conditions</li>
               <li className="hover:text-gray-700">Feedback</li>

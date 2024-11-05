@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Routes, Route } from "react-router"
+import Help from '../pages/Help'
 
 function Navbar() {
   return (
@@ -6,13 +9,13 @@ function Navbar() {
     <div className="container mx-auto max-w-6xl">
      <nav className="navbar flex justify-between items-center p-2">
       <div className="font-Cormorant font-semibold">PENTA</div>
-      <div className="text-sm">
+      <div className="text-sm">  
         <ul className="flex gap-6 font-Nunito">
-          <li className='hover:cursor-pointer hover:underline focus:outline-none'>HOME</li>
+          <Link to={'/'} className='hover:cursor-pointer hover:underline focus:outline-none'>HOME</Link>
           <li className='hover:cursor-pointer hover:underline'>SHOP</li>
           <li className='hover:cursor-pointer hover:underline'>BEST SELLERS</li>
           <li className='hover:cursor-pointer hover:underline'>CONTACT</li>
-          <li className='hover:cursor-pointer hover:underline'>HELP</li>
+          <Link to={'/help'}> <li className='hover:cursor-pointer hover:underline'>HELP</li> </Link>
         </ul>
       </div>
       <div className="flex gap-6 font-Nunito">

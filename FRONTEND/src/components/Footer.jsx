@@ -2,6 +2,7 @@ import React from "react";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -20,10 +21,10 @@ function Footer() {
           </div>
           <div className="flex flex-col gap-2">
             <h2 className="font-Nunito font-semibold">Customer Service</h2>
-            <ul className="text-sm leading-6 hover:cursor-pointer">
-              <li className="hover:text-gray-700">Help and Order</li>
-              <li className="hover:text-gray-700">Return Policy</li>
-              <li className="hover:text-gray-700">Terms and Conditions</li>
+            <ul className="text-sm leading-6 hover:cursor-pointer flex flex-col">
+              <Link to={'/privacypolicy'} className="hover:text-gray-700">Privacy Policy</Link>
+              <Link to={'/returnpolicy'} className="hover:text-gray-700">Return Policy</Link>
+              <Link to={'/termsandconditions'} className="hover:text-gray-700">Terms and Conditions</Link>
               <li className="hover:text-gray-700">Feedback</li>
             </ul>
           </div>

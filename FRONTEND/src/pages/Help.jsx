@@ -3,6 +3,8 @@ import Accordion from './Accoridon.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import { useInView } from 'react-intersection-observer';
+import ReturnPolicy from './ReturnPolicy.jsx';
+import { Link } from 'react-router-dom';
 
 function Help() {
     const { ref, inView } = useInView({ triggerOnce: true });
@@ -50,7 +52,7 @@ function Help() {
         <h2 className="text-2xl font-semibold mb-4">Returns & Exchanges</h2>
         <Accordion 
           question="What is the return policy?" 
-          answer="Items can be returned within 10 days of purchase in their original condition. Read our return policy for details." 
+          answer={<>Items can be returned within 10 days of purchase in their original condition. Read our <Link to={'/returnpolicy'} className='underline'> return policy </Link> for details.</>}
         />
         <Accordion 
           question="How long does it take to process a return?" 

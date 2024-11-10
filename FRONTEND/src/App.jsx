@@ -9,6 +9,7 @@ import ReturnPolicy from "./pages/ReturnPolicy.jsx"
 import TermsAndConditions from "./pages/TermsAndConditions.jsx"
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx"
 import ScrollToTop from "./components/ScrollToTop.jsx"
+import Contact from "./pages/Contact.jsx"
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
         <Route path="/returnpolicy" element={<ReturnPolicy />} />
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-
+        <Route path="/contact" element={<Contact />} />
       </Routes>
      {/* <Help /> */}
     </>

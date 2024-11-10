@@ -92,6 +92,7 @@ function PrivacyPolicy() {
             </li>
           </ul>
         </section>
+        
         <section className="mb-8 bg-gray-100 px-8 py-5 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4">Children’s Privacy</h2>
           <ul className="list-disc leading-7">
@@ -105,7 +106,7 @@ function PrivacyPolicy() {
           <h2 className="text-2xl font-semibold mb-4">Changes to This Privacy Policy</h2>
           <ul className="list-disc leading-7">
             <li>
-            We may update this Privacy Policy to reflect changes to our practices or legal requirements. We encourage you to review this policy periodically. The "Last Updated" date at the top of this page indicates when it was last revised.
+            We may update this Privacy Policy to reflect changes to our practices or legal requirements. We encourage you to review this policy periodically.
             </li>
           </ul>
         </section>

@@ -14,7 +14,7 @@ function Navbar() {
           <Link to={'/'} className='hover:cursor-pointer hover:underline focus:outline-none'>HOME</Link>
           <li className='hover:cursor-pointer hover:underline'>SHOP</li>
           <li className='hover:cursor-pointer hover:underline'>BEST SELLERS</li>
-          <li className='hover:cursor-pointer hover:underline'>CONTACT</li>
+          <Link to={'/contact'} className='hover:cursor-pointer hover:underline'>CONTACT</Link>
           <Link to={'/help'}> <li className='hover:cursor-pointer hover:underline'>HELP</li> </Link>
         </ul>
       </div>

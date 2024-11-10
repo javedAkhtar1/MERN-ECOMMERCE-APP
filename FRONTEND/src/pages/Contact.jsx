@@ -12,7 +12,7 @@ function Contact() {
         </h1>
 
         <section className="mb-8 bg-gray-100 px-8 py-5 rounded-lg">
-          <form action="" method="POST" className="flex flex-col">
+          <form action="https://formspree.io/f/mrbgkbvl" method="POST" className="flex flex-col">
             <label htmlFor="username" className="">
               Username<span className="text-red-500">*</span>:
             </label>
@@ -23,6 +23,7 @@ function Contact() {
               placeholder="username..."
               required
               className="p-1 rounded-md select-none"
+              autoComplete="off"
             />
 
             <label htmlFor="email" className="mt-6">
@@ -35,6 +36,7 @@ function Contact() {
               placeholder="email..."
               required
               className="p-1 rounded-md select-none"
+              autoComplete="off"
             />
 
             <label htmlFor="message" className="mt-6">
@@ -44,7 +46,9 @@ function Contact() {
               name="message"
               id="message"
               placeholder="message..."
+              required
               className="p-1 rounded-md resize-none h-36 select-none"
+              autoComplete="off"
             ></textarea>
 
             <button

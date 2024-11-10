@@ -25,7 +25,7 @@ function Footer() {
               <Link to={'/privacypolicy'} className="hover:text-gray-700">Privacy Policy</Link>
               <Link to={'/returnpolicy'} className="hover:text-gray-700">Return Policy</Link>
               <Link to={'/termsandconditions'} className="hover:text-gray-700">Terms and Conditions</Link>
-              <li className="hover:text-gray-700">Feedback</li>
+              <Link to={'/feedback'} className="hover:text-gray-700">Feedback</Link>
             </ul>
           </div>
           <div className="flex flex-col gap-2">

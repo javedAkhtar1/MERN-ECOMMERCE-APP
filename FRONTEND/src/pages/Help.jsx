@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion from './Accoridon.jsx';
+import Accordion from './Accordion.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import { useInView } from 'react-intersection-observer';

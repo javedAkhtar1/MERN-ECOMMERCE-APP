@@ -76,7 +76,7 @@ function Help() {
         />
         <Accordion 
           question="Where can I give feedback about my experience?" 
-          answer="We welcome your feedback! You can leave feedback on our website through the feedback page." 
+          answer={<>We welcome your feedback! You can leave feedback on our website through the <Link to={'/feedback'} className='underline'> feedback </Link> page.</>}
         />
       </section>
     </div>

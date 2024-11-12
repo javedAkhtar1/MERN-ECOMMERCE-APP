@@ -15,12 +15,12 @@ function Navbar() {
           <li className='hover:cursor-pointer hover:underline'>SHOP</li>
           <li className='hover:cursor-pointer hover:underline'>BEST SELLERS</li>
           <Link to={'/contact'} className='hover:cursor-pointer hover:underline'>CONTACT</Link>
-          <Link to={'/help'}> <li className='hover:cursor-pointer hover:underline'>HELP</li> </Link>
+          <Link to={'/help'} className='hover:cursor-pointer hover:underline'>HELP </Link>
         </ul>
       </div>
       <div className="flex gap-6 font-Nunito">
-        <div className='hover:cursor-pointer hover:underline'>Login</div>
-        <div className='hover:cursor-pointer hover:underline'>Signup</div>
+      <Link to={'/login'} className='hover:cursor-pointer hover:underline'>Login</Link>
+      <Link to={'/signup'} className='hover:cursor-pointer hover:underline'>Signup </Link>
       </div>
      </nav>
     </div>

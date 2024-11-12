@@ -11,6 +11,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.jsx"
 import ScrollToTop from "./components/ScrollToTop.jsx"
 import Contact from "./pages/Contact.jsx"
 import Feedback from "./pages/Feedback.jsx"
+import Signup from "./pages/Signup.jsx"
+import Login from "./pages/Login.jsx"
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/feedback" element={<Feedback />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
      {/* <Help /> */}
     </>

@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 function Signup() {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    const [showPassword, setShowPassword] = useState(false)
+
+    const toggleShowPassword = () => {
+      setShowPassword(prev => !prev)
+    }
 
   return (
     <>
@@ -54,16 +62,20 @@ function Signup() {
             <label htmlFor="message" className="mt-6">
               Password<span className="text-red-500">*</span>:
             </label>
+            
+            <div className="flex justify-evenly">
             <input
               name="password"
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="p-1 rounded-md resize-none select-none"
+              className="p-1 rounded-l-lg resize-none select-none w-full"
               autoComplete="off"
             />
+            <button onClick={toggleShowPassword} className="bg-white p-1 rounded-r-lg"> {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon /> }  </button>
+            </div>
 
             <button
               type="submit"

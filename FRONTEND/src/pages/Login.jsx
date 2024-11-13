@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 function Login() {
-    const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   return (
     <>
@@ -17,12 +24,7 @@ function Login() {
         </h1>
 
         <section className="mb-2 bg-gray-200 px-8 py-5 rounded-lg">
-          <form
-            action=""
-            method="POST"
-            className="flex flex-col"
-          >
-
+          <form action="" method="POST" className="flex flex-col">
             <label htmlFor="email" className="mt-6">
               Email<span className="text-red-500">*</span>:
             </label>
@@ -36,21 +38,30 @@ function Login() {
               className="p-1 rounded-md select-none"
               autoComplete="off"
             />
-
-        
+            
             <label htmlFor="message" className="mt-6">
               Password<span className="text-red-500">*</span>:
             </label>
-            <input
-              name="password"
-              id="password"
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="p-1 rounded-md resize-none select-none"
-              autoComplete="off"
-            />
+
+            <div className="flex justify-evenly">
+              <input
+                name="password"
+                id="password"
+                type={showPassword ? "text" : "password"}
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="p-1 rounded-l-lg resize-none select-none w-full"
+                autoComplete="off"
+              />
+              <button
+                onClick={toggleShowPassword}
+                className="bg-white p-1 rounded-r-lg"
+              >
+          
+                {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              </button>
+            </div>
 
             <button
               type="submit"
@@ -59,7 +70,12 @@ function Login() {
               Login
             </button>
           </form>
-          <p className="text-center mt-3 text-sm">Do not have an account? <Link to={'/signup'} className="underline text-blue-800">Signup</Link></p>
+          <p className="text-center mt-3 text-sm">
+            Do not have an account?{" "}
+            <Link to={"/signup"} className="underline text-blue-800">
+              Signup
+            </Link>
+          </p>
         </section>
       </div>
       <Footer />

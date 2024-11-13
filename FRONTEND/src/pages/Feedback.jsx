@@ -59,7 +59,7 @@ function Feedback() {
             />
 
             <label htmlFor="email" className="mt-6">
-              Your Email<span className="text-red-500">*</span>:
+              Your email<span className="text-red-500">*</span>:
             </label>
             <input
               type="email"

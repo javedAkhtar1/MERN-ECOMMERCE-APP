@@ -8,8 +8,8 @@ function Footer() {
   return (
     <>
       <div className="mt-[30px] bg-gray-200">
-        <footer className="flex justify-evenly  px-10 py-4">
-          <div className="flex flex-col gap-2">
+        <footer className="flex flex-col items-center sm:flex-row sm:justify-evenly sm:items-start  sm:px-10 px-4 py-4 gap-3">
+          <div className="flex flex-col items-center text-center sm:items-start sm:text-left gap-1 sm:gap-2">
             <h2 className="font-Nunito font-semibold">Information</h2>
             <ul className="text-sm leading-6 hover:cursor-pointer">
               <li className="hover:text-gray-700">Trending</li>
@@ -19,7 +19,7 @@ function Footer() {
               <li className="hover:text-gray-700">Kids'</li>
             </ul>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-center text-center sm:items-start sm:text-left gap-1 sm:gap-2">
             <h2 className="font-Nunito font-semibold">Customer Service</h2>
             <ul className="text-sm leading-6 hover:cursor-pointer flex flex-col">
               <Link to={'/privacypolicy'} className="hover:text-gray-700">Privacy Policy</Link>
@@ -28,7 +28,7 @@ function Footer() {
               <Link to={'/feedback'} className="hover:text-gray-700">Feedback</Link>
             </ul>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-center text-center sm:items-start sm:text-left gap-1 sm:gap-2">
             <h2 className="font-Nunito font-semibold"> Connect  </h2>
             <ul className="text-sm leading-8 hover:cursor-pointer">
               <li className="hover:text-gray-700"> <a href="https://x.com/javed999_" target="_blank"> <XIcon/> </a>  </li>

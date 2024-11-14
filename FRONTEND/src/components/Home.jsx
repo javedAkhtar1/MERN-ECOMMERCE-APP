@@ -20,7 +20,7 @@ function Home() {
             alt="home-image"
             className="h-[540px] w-full object-fill"
           />
-          <div className="absolute flex flex-col justify-center items-center bottom-[100px] right-[220px] gap-4">
+          <div className="absolute flex flex-col inset-x-0 bottom-[75px] justify-center items-center md:left-[380px] gap-4">
             <h1 className="text-4xl font-Cormorant text-red-700">BIG SALE</h1>
             <p className="max-w-xs text-center font-Rubik text-[.8rem]">
               Discover the latest trends and exclusive collections crafted to

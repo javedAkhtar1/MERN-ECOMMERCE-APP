@@ -39,7 +39,7 @@ function Navbar() {
      </nav>
      {/* Mobile Navbar */}
      {isMenuOpen ? (
-        <ul className="md:hidden flex flex-col gap-2 items-center font-Nunito">
+        <ul className="md:hidden flex flex-col gap-2 items-center font-Nunito text-sm">
           <Link to={'/'} className='hover:cursor-pointer hover:underline focus:outline-none'>HOME</Link>
           <li className='hover:cursor-pointer hover:underline'>SHOP</li>
           <li className='hover:cursor-pointer hover:underline'>BEST SELLERS</li>

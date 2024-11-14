@@ -10,7 +10,10 @@ export default {
         "Cormorant": ["Cormorant", "serif"],
         "Nunito": ["Nunito", "serif"],
         "Rubik": ["Rubik", "sans-serif"]
-      }
+      },
+      screens: {
+        xs: '428px',
+      },
     },
   },
   plugins: [],

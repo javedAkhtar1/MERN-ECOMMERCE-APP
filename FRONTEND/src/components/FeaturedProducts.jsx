@@ -8,8 +8,8 @@ function FeaturedProducts() {
 
   return (
     <>
-      <div className="mt-[110px]">
-        <h1 className="text-center text-3xl font-Nunito font-thin text-red-900">
+      <div className="mt-12 flex justify-center items-center">
+        <h1 className="text-center text-3xl font-Nunito font-thin text-red-900 px-5">
           FEATURED PRODUCTS
         </h1>
       </div>
@@ -20,7 +20,7 @@ function FeaturedProducts() {
           transform: divInView ? "translateY(0)" : "translateY(20px)",
           transition: "opacity .5s ease, transform .5s ease",
         }}
-        className="featured-products grid grid-rows-2 grid-cols-3 mt-6 mx-auto justify-items-center gap-8"
+        className="featured-products max-w-6xl px-5 grid grid-rows-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-6 mx-auto justify-items-center gap-8"
       >
         {featuredProducts.map((product) => (
           <FeaturedProductCard key={product.id} product={product} />

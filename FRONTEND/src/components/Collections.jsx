@@ -9,9 +9,9 @@ function Collections() {
   const { ref: kidRef, inView: kidInView } = useInView({ triggerOnce: true });
 
   return (
-    <div className="max-w-6xl mx-auto px-5">
+    <div className="max-w-6xl mx-auto h-auto px-5">
       <section
-        className="collections-section mt-6 grid max-h-[700px] gap-5"
+        className="collections-section mt-6 grid h-auto gap-5"
         style={{ gridTemplateColumns: "4fr 4fr", gridTemplateRows: "1fr 1fr" }}
       >
         <div

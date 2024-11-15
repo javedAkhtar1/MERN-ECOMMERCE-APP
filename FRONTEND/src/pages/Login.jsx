@@ -73,7 +73,7 @@ function Login() {
           <p className="text-center mt-3 text-sm">
             Do not have an account?{" "}
             <Link to={"/signup"} className="underline text-blue-800">
-              Signup
+              Sign up
             </Link>
           </p>
         </section>

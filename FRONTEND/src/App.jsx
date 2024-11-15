@@ -13,6 +13,7 @@ import Contact from "./pages/Contact.jsx"
 import Feedback from "./pages/Feedback.jsx"
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
+import Shop from "./components/Shop.jsx"
 
 function App() {
 
@@ -33,8 +34,8 @@ function App() {
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
-     {/* <Help /> */}
     </>
   )
 }

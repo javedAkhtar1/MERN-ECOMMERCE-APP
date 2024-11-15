@@ -1,6 +1,6 @@
 import React from "react";
 import { featuredProducts } from "../featuredProducts.js";
-import FeaturedProductCard from "./FeaturedProductCard";
+import FeaturedProductCard from "./FeaturedProductCard.jsx";
 import { useInView } from "react-intersection-observer";
 
 function FeaturedProducts() {

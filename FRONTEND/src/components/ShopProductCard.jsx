@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { products } from "../shop.js";
 
 function ShopProductCard({ product }) {
   return (
-    <div className="product-card flex flex-col p-3 hover:cursor-pointer">
+    <Link to={`/shop/product/${product.id}`} className="product-card flex flex-col p-3 hover:cursor-pointer">
       <img
         src={product.image}
         alt={`${product.name}`}
@@ -14,7 +16,7 @@ function ShopProductCard({ product }) {
       <span className="mt-1 text-lg font-Rubik">Rs. {product.price}</span>
       <button className="font-Nunito border px-3 py-[0.1rem] rounded-sm text-sm bg-gray-300 hover:bg-gray-400">Add to cart </button>
       </div>
-    </div>
+    </Link>
   );
 }
 

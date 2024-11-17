@@ -19,7 +19,7 @@ function CompleteProduct() {
         <img
           src={product.image}
           alt={`${product.name}'s image`}
-          className="h-[400px] w-[400px]"
+          className="h-[400px] w-[400px] p-5"
         />
         <div className="p-5">
           <h1 className="text-4xl font-Nunito">{product.name}</h1>

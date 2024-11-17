@@ -1,11 +1,10 @@
 import React from "react";
 import { featuredProducts } from "../featuredProducts.js";
 import FeaturedProductCard from "./FeaturedProductCard.jsx";
-import { useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";  
 
 function FeaturedProducts() {
   const { ref: divRef, inView: divInView } = useInView({ triggerOnce: true });
-
   return (
     <>
       <div className="mt-12 flex justify-center items-center">

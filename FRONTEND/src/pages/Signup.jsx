@@ -69,6 +69,7 @@ function Signup() {
               id="password"
               type={showPassword ? "text" : "password"}
               required
+              minLength={6}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="p-1 rounded-l-lg resize-none select-none w-full"

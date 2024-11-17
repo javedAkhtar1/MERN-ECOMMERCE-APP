@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { products } from "../shop.js";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
 function CompleteProduct() {
   const { id } = useParams();
@@ -15,14 +16,14 @@ function CompleteProduct() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen max-w-6xl mx-auto mt-4 p-5 flex gap-10">
+      <div className="max-w-6xl mx-auto mt-4 p-5 flex flex-col md:flex-row items-center justify-center md:items-start gap-10">
         <img
           src={product.image}
           alt={`${product.name}'s image`}
           className="h-[400px] w-[400px] p-5"
         />
         <div className="p-5">
-          <h1 className="text-4xl font-Nunito">{product.name}</h1>
+          <h1 className="xs:text-4xl text-3xl font-Nunito">{product.name}</h1>
           <p className="text-gray-500">{product.description}</p>
           <div className="flex mt-3 gap-1 font-Rubik text-sm">
             <p> {product.rating} </p>
@@ -31,18 +32,46 @@ function CompleteProduct() {
               {product.ratingCount} Ratings
             </p>
           </div>
-          <p className="mt-3 text-3xl">
-            Rs. {product.price} {" "}
-            <span className="text-sm text-green-700">
+          <p className="mt-3 xs:text-2xl font-Rubik">
+            Rs. {product.price}{" "}
+            <span className="text-xs text-green-600">
               (inclusive of all taxes)
             </span>
           </p>
           <div className="flex flex-col gap-4 mt-10">
-        <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">Buy Now</button>
-        <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">Add to Cart</button>
+            <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
+              Buy Now
+            </button>
+            <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
+              Add to Cart
+            </button>
           </div>
         </div>
+        <div className="max-w-[250px] lg:flex lg:flex-col gap-4 p-5 hidden">
+          <h2>About this product:</h2>
+          <p className="text-sm text-gray-500">{product.about} </p>
+        </div>
       </div>
+
+      {/* For smaller than lg */}
+      <div className="flex flex-col gap-2 p-5 items-center justify-center max-w-5xl mx-auto lg:hidden">
+          <h2>About this product:</h2>
+          <p className="text-sm text-gray-500">{product.about} </p>
+      </div>
+
+      {/* Reviews */}
+        <h1 className="text-center text-3xl font-Nunito text-gray-700 border-b max-w-5xl mx-auto p-3">Reviews</h1>
+        {product.reviews.map((r) => (
+          <>
+            <div className="max-w-5xl mx-auto px-5 py-3 border-b">
+              <div className="flex items-center py-2 text-lg font-Nunito gap-1"> 
+              <AccountCircleRoundedIcon className="text-xs text-gray-500"/> 
+              <p>{r.username}</p>
+              </div>
+              <p className="px-2 text-sm">{r.review}</p>
+            </div>
+          </>
+        ))}
 
       <Footer />
     </>

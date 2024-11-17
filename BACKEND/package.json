@@ -1,0 +1,15 @@
+{
+  "name": "penta-backend",
+  "version": "1.0.0",
+  "description": "backend for my mern project PENTA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Javed Akhtar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

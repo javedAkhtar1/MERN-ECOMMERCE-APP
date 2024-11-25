@@ -4,7 +4,6 @@ import { products } from "../shop.js";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import FeaturedProductCard from "./FeaturedProductCard.jsx";
 import { Link } from "react-router-dom";
 
 function CompleteProduct() {
@@ -13,7 +12,7 @@ function CompleteProduct() {
   const similarProducts = products.filter(
     (p) => p.category === product.category && p.id !== product.id
   );
-
+  
   if (!product) {
     return <p>OOPS! Product not found!</p>;
   }

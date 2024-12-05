@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const connectToDB = require("./connect.js");
-const {postSignup} = require("./controllers/auth.controller.js")
+const {postSignup, postLogin} = require("./controllers/auth.controller.js")
 const cors = require("cors");
 
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signup", postSignup)
+app.post("/login", postLogin)
 
 app.listen(PORT, () => {
   console.log("server running at port: ", PORT);

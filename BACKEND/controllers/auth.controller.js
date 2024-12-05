@@ -23,4 +23,24 @@ async function postSignup(req, res) {
     }
 }
 
-module.exports = {postSignup}
+async function postLogin(req, res) {
+  const {email, password} = req.body;
+  console.log(req.body)
+  const isUser = await User.find({email})
+  console.log(email)
+  // console.log(isUser)
+  if (isUser.length !== 0) {
+    const checkPassword = await bcrypt.compare(password, isUser[0].password)
+    console.log(checkPassword)
+    if (checkPassword) {
+      console.log("corect user with pass")
+    }
+    else {
+      console.log("wrong pass")
+    }
+  }
+  else console.log("not found")
+
+}
+
+module.exports = {postSignup, postLogin}

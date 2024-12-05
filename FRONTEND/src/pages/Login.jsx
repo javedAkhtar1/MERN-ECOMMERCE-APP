@@ -4,16 +4,30 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import axios from "axios"
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({email: "", password: ""});
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const toggleShowPassword = () => {
+  const toggleShowPassword = (e) => {
+    e.preventDefault()
     setShowPassword((prev) => !prev);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = axios.post("http://localhost:3000/login", user)
+      console.log(response)
+
+    }
+    catch (e) {
+      console.log("nothing hapened")
+      console.log(e.message)
+    }
+  }
 
   return (
     <>
@@ -24,7 +38,7 @@ function Login() {
         </h1>
 
         <section className="mb-2 bg-gray-200 px-8 py-5 rounded-lg">
-          <form action="" method="POST" className="flex flex-col">
+          <form action="" method="POST" className="flex flex-col" onSubmit={handleSubmit}>
             <label htmlFor="email" className="mt-6">
               Email<span className="text-red-500">*</span>:
             </label>
@@ -33,8 +47,8 @@ function Login() {
               name="email"
               id="email"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={user.email}
+              onChange={(e) => setUser({...user, email: e.target.value})}
               className="p-1 rounded-md select-none"
               autoComplete="off"
             />
@@ -49,8 +63,8 @@ function Login() {
                 id="password"
                 type={showPassword ? "text" : "password"}
                 required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={user.password}
+                onChange={(e) => setUser({...user, password: e.target.value})}
                 className="p-1 rounded-l-lg resize-none select-none w-full"
                 autoComplete="off"
               />

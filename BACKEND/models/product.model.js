@@ -21,6 +21,7 @@ const productSchema = mongoose.Schema(
     category: {
       type: String,
       required: true,
+      enum: ["men", "women", "kids"],
     },
     about: {
       type: String,
@@ -40,6 +41,7 @@ const productSchema = mongoose.Schema(
     },
     isFeatured: { type: Boolean, default: false },
     isBestSeller: { type: Boolean, default: false },
+    isTrending: { type: Boolean, default: false },
     reviews: [
       {
         user: {
@@ -49,7 +51,6 @@ const productSchema = mongoose.Schema(
         },
         rating: { type: Number, required: true, min: 1, max: 5 },
         comment: { type: String, default: "" },
-        date: { type: Date, default: Date.now },
       },
     ],
   },

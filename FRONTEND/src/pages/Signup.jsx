@@ -20,7 +20,6 @@ function Signup() {
       e.preventDefault();
       try {
         const response = await axios.post("http://localhost:3000/signup", newUser)
-        // console.log(response)
         if (response.status === 201) {
           window.alert("Signup successful!")
           navigate("/login")

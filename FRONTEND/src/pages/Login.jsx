@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axios from "axios"
 
 function Login() {
   const [user, setUser] = useState({email: "", password: ""});
-
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate()
 
   const toggleShowPassword = (e) => {
     e.preventDefault()
@@ -19,12 +20,14 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = axios.post("http://localhost:3000/login", user)
-      console.log(response)
-
+      const response = await axios.post("http://localhost:3000/login", user)
+      // console.log(response.status)
+      if (response.status === 200) {
+        navigate("/")
+      }
     }
     catch (e) {
-      console.log("nothing hapened")
+      console.log("nothing happened")
       console.log(e.message)
     }
   }

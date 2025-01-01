@@ -1,8 +1,10 @@
+require("dotenv").config({ path: "../.env" });
+
 const mongoose = require("mongoose");
 const Product = require("../models/product.model.js")
 const User = require("../models/user.model.js")
 const allProducts = require("./allProducts.js")
-const connectToDB = require("./connect.js");
+const connectToDB = require("../connect.js");
 
 connectToDB();
 
@@ -27,7 +29,7 @@ const seedProducts = async () => {
             // Populate reviews field
             product.reviews = userIds.map((userId, index) => ({
                 user: userId,
-                rating: Math.floor(Math.random() * 5) + 2, // Random rating between 1-5
+                rating: Math.floor(Math.random() * 3) + 3, // Random rating between 1-5
                 comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam labore vitae doloremque nisi'
             }));
 

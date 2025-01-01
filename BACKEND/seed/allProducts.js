@@ -12,7 +12,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: true,
         isTrending: true,
-        reviews: [], // dynmic population
+        reviews: [], // dynamic population
     },
     {
         name: "Men's Shorts",
@@ -27,13 +27,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Men's Blue Jeans",
@@ -48,13 +42,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "White Sneakers for men",
@@ -69,13 +57,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Men's Red T-Shirt",
@@ -90,13 +72,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Brown Leather Jacket for men",
@@ -111,13 +87,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Green Full-Sleeve Shirt for men",
@@ -132,13 +102,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Men's Gray Cargo Pants",
@@ -153,13 +117,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Black Leather Belt for men",
@@ -174,13 +132,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Men's Blue Denim Jacket",
@@ -195,13 +147,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Metal Bracelet for Men",
@@ -216,13 +162,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345', // Replace with a valid ObjectId
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Olive Chalsea Boots for Men",
@@ -237,13 +177,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Men's Navy Blue Trousers",
@@ -252,19 +186,13 @@ const allProducts = [
         price: 1199,
         category: 'men',
         about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam labore vitae doloremque nisi quisquam ex itaque cum soluta eligendi delectus maxime quae illum eaque molestias, facere exercitationem!',
-        rating: 4,
+        rating: 4.1,
         ratingCount: '2k',
-        discount: 20,
+        discount: 10,
         isFeatured: false,
-        isBestSeller: false,
+        isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Powder Blue Shirt for Men",
@@ -279,13 +207,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Plain Shirt for Men",
@@ -300,13 +222,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Women's Black Leather Jacket",
@@ -321,13 +237,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Women's Black Sandals",
@@ -342,13 +252,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Navy Blue Crop Top",
@@ -363,13 +267,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Bracelet for Women",
@@ -384,13 +282,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Brown Sweater for Women",
@@ -405,13 +297,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "White Floral Dress for Women",
@@ -426,13 +312,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "High Heels for Women",
@@ -447,13 +327,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Leather Belt for Women",
@@ -468,13 +342,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Light Pink Top for Women",
@@ -489,13 +357,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Powder Blue Shirt for Women",
@@ -510,13 +372,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Purple Full Sleeve T-Shirt for Women",
@@ -531,13 +387,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Red Asymmetrical Party Dress for Women",
@@ -552,13 +402,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Golden Analogue Watch for Women",
@@ -573,13 +417,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "White Sneakers for Women",
@@ -588,19 +426,13 @@ const allProducts = [
         price: 1669,
         category: 'women',
         about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam labore vitae doloremque nisi quisquam ex itaque cum soluta eligendi delectus maxime quae illum eaque molestias, facere exercitationem!',
-        rating: 4,
-        ratingCount: '1.7k',
-        discount: 45,
+        rating: 4.4,
+        ratingCount: '4.2k',
+        discount: 10,
         isFeatured: true,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Yellow Frock for Women",
@@ -615,13 +447,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Kids' Patterned Blue Shirt",
@@ -636,13 +462,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Bracelet for Kids",
@@ -657,13 +477,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Pink Cap for Kids",
@@ -678,13 +492,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Black Jacket for Kids",
@@ -699,13 +507,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: true,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Olive Green Pants for Kids",
@@ -720,13 +522,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Printed T-Shirt for Kids",
@@ -741,13 +537,7 @@ const allProducts = [
         isFeatured: true,
         isBestSeller: true,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Casual Shoes for Kids",
@@ -762,13 +552,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Light Blue Shorts for Kids",
@@ -783,13 +567,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: true,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
     {
         name: "Yellow T-Shirt for Kids",
@@ -804,13 +582,7 @@ const allProducts = [
         isFeatured: false,
         isBestSeller: false,
         isTrending: false,
-        reviews: [
-            {
-                user: '6423abc2345678901def2345',
-                rating: 5,
-                comment: 'My kid loves it!',
-            },
-        ],
+        reviews: [],
     },
 ];
 

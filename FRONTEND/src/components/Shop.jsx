@@ -1,30 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios"; // For making API requests
+import React, { useContext } from "react";
 import { useInView } from "react-intersection-observer";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import ShopProductCard from "./ShopProductCard.jsx";
+import { productsContext } from "../context/ProductsContextProvider.jsx";
 
 function Shop() {
-  const [products, setProducts] = useState([]); 
-  const [loading, setLoading] = useState(true);
   const { ref: divRef, inView: divInView } = useInView({ triggerOnce: true });
-
-  // Fetch products from the API
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products");
-        setProducts(response.data); 
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []); 
-
+  const { products, loading } =  useContext(productsContext)
+  console.log(products)
   return (
     <>
       <Navbar />

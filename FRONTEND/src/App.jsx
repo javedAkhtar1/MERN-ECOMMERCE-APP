@@ -15,6 +15,7 @@ import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
 import Shop from "./components/Shop.jsx"
 import CompleteProduct from "./components/CompleteProduct.jsx"
+import ProductsContextProvider from "./context/ProductsContextProvider.jsx"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
      <FeaturedProducts />
      <Footer /> */}
      <ScrollToTop />
+     <ProductsContextProvider>
      <Routes>
         <Route path="/" element={<CompleteHome />} />
         <Route path="/help" element={<Help />} />
@@ -36,8 +38,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/product/:id" element={<CompleteProduct />} />
+        <Route path="/shop/product/:id" element={<CompleteProduct  />} />
       </Routes>
+     </ProductsContextProvider>
     </>
   )
 }

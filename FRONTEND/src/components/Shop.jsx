@@ -8,7 +8,8 @@ import { productsContext } from "../context/ProductsContextProvider.jsx";
 function Shop() {
   const { ref: divRef, inView: divInView } = useInView({ triggerOnce: true });
   const { products, loading } =  useContext(productsContext)
-  console.log(products)
+  // console.log(products)
+
   return (
     <>
       <Navbar />

@@ -38,7 +38,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/product/:id" element={<CompleteProduct  />} />
+        <Route path="/shop/product/:id" element={<CompleteProduct />} />
       </Routes>
      </ProductsContextProvider>
     </>

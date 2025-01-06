@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function ShopProductCard({ product }) {
   return (
-    <Link to={`/shop/product/${product.id}`} className="product-card flex flex-col p-3 hover:cursor-pointer">
+    <Link to={`/shop/product/${product._id}`} className="product-card flex flex-col p-3 hover:cursor-pointer">
       <img
         src={product.image}
         alt={`${product.name}`}

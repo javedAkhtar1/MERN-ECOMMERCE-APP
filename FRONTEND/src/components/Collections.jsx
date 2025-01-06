@@ -1,5 +1,6 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 function Collections() {
   const { ref: womanRef, inView: womanInView } = useInView({
@@ -32,9 +33,9 @@ function Collections() {
               WOMEN'S
             </h1>
             <h1 className="md:text-3xl sm:text-3xl xs:text-2xl text-lg">COLLECTION</h1>
-            <button className="font-Cormorant mt-2 text-sm sm:text-base md:text-lg border border-black py-1 xs:px-4 px-1 hover:bg-black hover:text-white transition-all">
+            <Link to={"/shop/women"} className="font-Cormorant mt-2 text-sm sm:text-base md:text-lg border border-black py-1 xs:px-4 px-1 hover:bg-black hover:text-white transition-all">
               Check Out
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -54,9 +55,9 @@ function Collections() {
               MEN'S
             </h1>
             <h1 className="md:text-3xl sm:text-3xl xs:text-2xl text-sm">COLLECTION</h1>
-            <button className="font-Cormorant xs:mt-2 mt-1 text-xs xs:text-sm md:text-lg border border-black xs:py-1 py-[0.1rem] xs:px-3 sm:px-4 px-1 hover:bg-black hover:text-white transition-all">
+            <Link to={'/shop/men'} className="font-Cormorant xs:mt-2 mt-1 text-xs xs:text-sm md:text-lg border border-black xs:py-1 py-[0.1rem] xs:px-3 sm:px-4 px-1 hover:bg-black hover:text-white transition-all">
               Check Out
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -76,9 +77,9 @@ function Collections() {
               KIDS'
             </h1>
             <h1 className="md:text-3xl sm:text-3xl xs:text-2xl text-sm">COLLECTION</h1>
-            <button className="font-Cormorant xs:mt-2 mt-1 text-xs xs:text-sm md:text-lg border border-black xs:py-1 py-[0.1rem] xs:px-3 sm:px-4 px-1 hover:bg-black hover:text-white transition-all">
+            <Link to={'/shop/kids'} className="font-Cormorant xs:mt-2 mt-1 text-xs xs:text-sm md:text-lg border border-black xs:py-1 py-[0.1rem] xs:px-3 sm:px-4 px-1 hover:bg-black hover:text-white transition-all">
               Check Out
-            </button>
+            </Link>
           </div>
         </div>
       </section>

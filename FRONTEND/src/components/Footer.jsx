@@ -11,12 +11,12 @@ function Footer() {
         <footer className="flex flex-col items-center sm:flex-row sm:justify-evenly sm:items-start  sm:px-10 px-4 py-4 gap-3">
           <div className="flex flex-col items-center text-center sm:items-start sm:text-left gap-1 sm:gap-2">
             <h2 className="font-Nunito font-semibold">Information</h2>
-            <ul className="text-sm leading-6 hover:cursor-pointer">
-              <li className="hover:text-gray-700">Trending</li>
-              <li className="hover:text-gray-700">Featured</li>
-              <li className="hover:text-gray-700">Men's</li>
-              <li className="hover:text-gray-700">Women's</li>
-              <li className="hover:text-gray-700">Kids'</li>
+            <ul className="text-sm leading-6 hover:cursor-pointer flex flex-col">
+              <Link to={"/shop/trending"} className="hover:text-gray-700">Trending</Link>
+              <Link to={"/shop/featured"} className="hover:text-gray-700">Featured</Link>
+              <Link to={"/shop/men"} className="hover:text-gray-700">Men's</Link>
+              <Link to={"/shop/women"} className="hover:text-gray-700">Women's</Link>
+              <Link to={"/shop/kids"} className="hover:text-gray-700">Kids'</Link>
             </ul>
           </div>
           <div className="flex flex-col items-center text-center sm:items-start sm:text-left gap-1 sm:gap-2">

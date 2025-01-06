@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { useInView } from 'react-intersection-observer';
+import { Link } from "react-router-dom";
 
 function Home() {
   const { ref, inView } = useInView({ triggerOnce: true });
@@ -27,12 +28,12 @@ function Home() {
               elevate your style.
             </p>
             <div className="flex gap-4">
-              <button className="font-Cormorant text-lg border border-black py-1 px-4 hover:bg-black hover:text-white transition-all">
+              <Link to={"/shop/deals"} className="font-Cormorant text-lg border border-black py-1 px-4 hover:bg-black hover:text-white transition-all">
                 View Deals
-              </button>
-              <button className="font-Cormorant text-lg border text-white bg-red-700 py-1 px-4 hover:bg-red-900 transition-all">
+              </Link>
+              <Link to={"/shop"} className="font-Cormorant text-lg border text-white bg-red-700 py-1 px-4 hover:bg-red-900 transition-all">
                 Shop Now
-              </button>
+              </Link>
             </div>
           </div>
         </section>

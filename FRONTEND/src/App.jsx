@@ -16,6 +16,13 @@ import Login from "./pages/Login.jsx"
 import Shop from "./components/Shop.jsx"
 import CompleteProduct from "./components/CompleteProduct.jsx"
 import ProductsContextProvider from "./context/ProductsContextProvider.jsx"
+import Trending from "./collection_pages/Trending.jsx"
+import Featured from "./collection_pages/Featured.jsx"
+import Mens from "./collection_pages/Mens.jsx"
+import Womens from "./collection_pages/Womens.jsx"
+import Kids from "./collection_pages/Kids.jsx"
+import Deals from "./collection_pages/deals.jsx"
+import BestSeller from "./collection_pages/BestSeller.jsx"
 
 function App() {
 
@@ -39,6 +46,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/product/:id" element={<CompleteProduct />} />
+        <Route path="/shop/trending" element={<Trending />}></Route>
+        <Route path="/shop/featured" element={<Featured />}></Route>
+        <Route path="/shop/men" element={<Mens />}></Route>
+        <Route path="/shop/women" element={<Womens />}></Route>
+        <Route path="/shop/kids" element={<Kids />}></Route>
+        <Route path="/shop/deals" element={<Deals />}></Route>
+        <Route path="/shop/bestseller" element={<BestSeller />}></Route>
       </Routes>
      </ProductsContextProvider>
     </>

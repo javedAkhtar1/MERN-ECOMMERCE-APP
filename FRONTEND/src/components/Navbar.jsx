@@ -21,7 +21,7 @@ function Navbar() {
         <ul className="md:flex gap-6 font-Nunito hidden">
           <Link to={'/'} className='hover:cursor-pointer hover:underline focus:outline-none'>HOME</Link>
           <Link to={'/shop'} className='hover:cursor-pointer hover:underline'>SHOP</Link>
-          <li className='hover:cursor-pointer hover:underline'>BEST SELLERS</li>
+          <Link to={'/shop/bestseller'} className='hover:cursor-pointer hover:underline'>BEST SELLERS</Link>
           <Link to={'/contact'} className='hover:cursor-pointer hover:underline'>CONTACT</Link>
           <Link to={'/help'} className='hover:cursor-pointer hover:underline'>HELP </Link>
         </ul>

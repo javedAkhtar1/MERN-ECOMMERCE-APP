@@ -24,23 +24,36 @@ async function postSignup(req, res) {
 }
 
 async function postLogin(req, res) {
-  const {email, password} = req.body;
-  console.log(req.body)
-  const isUser = await User.find({email})
-  console.log(email)
-  // console.log(isUser)
-  if (isUser.length !== 0) {
-    const checkPassword = await bcrypt.compare(password, isUser[0].password)
-    console.log(checkPassword)
-    if (checkPassword) {
-      console.log("corect user with pass")
-    }
-    else {
-      console.log("wrong pass")
-    }
-  }
-  else console.log("not found")
+  const { email, password } = req.body;
+  console.log(req.body);
 
+  try {
+    const isUser = await User.find({ email });
+    console.log(email);
+
+    if (isUser.length !== 0) {
+      const checkPassword = await bcrypt.compare(password, isUser[0].password);
+      console.log(checkPassword);
+
+      if (checkPassword) {
+        console.log("correct user with pass");
+        res.status(200).json({ message: "Login successful", user: isUser[0] });
+      } 
+      else {
+        console.log("wrong pass");
+        res.status(401).json({ message: "Incorrect password" });
+      }
+    } 
+    else {
+      console.log("not found");
+      res.status(404).json({ message: "User not found" });
+    }
+  } 
+  catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error", error });
+  }
 }
+
 
 module.exports = {postSignup, postLogin}

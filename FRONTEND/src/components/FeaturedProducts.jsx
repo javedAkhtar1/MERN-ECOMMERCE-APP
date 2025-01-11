@@ -1,10 +1,13 @@
-import React from "react";
-import { featuredProducts } from "../featuredProducts.js";
+import React, { useContext } from "react";
+// import { featuredProducts } from "../featuredProducts.js";
 import FeaturedProductCard from "./FeaturedProductCard.jsx";
 import { useInView } from "react-intersection-observer";  
+import { productsContext } from "../context/ProductsContextProvider.jsx";
 
 function FeaturedProducts() {
   const { ref: divRef, inView: divInView } = useInView({ triggerOnce: true });
+  const { products } = useContext(productsContext)
+  const featuredProducts  = products.filter((p) => p.isFeatured).slice(0, 6)
   return (
     <>
       <div className="mt-12 flex justify-center items-center">

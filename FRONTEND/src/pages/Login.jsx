@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axios from "axios"
+import { loginContext } from "../context/LoginContextProvider";
 
 function Login() {
   const [user, setUser] = useState({email: "", password: ""});
   const [showPassword, setShowPassword] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(loginContext)
 
   const navigate = useNavigate()
 
@@ -21,8 +24,10 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/login", user)
-      // console.log(response.status)
+      console.log(response.status)
       if (response.status === 200) {
+        setIsLoggedIn(true);
+        console.log(isLoggedIn)
         navigate("/")
       }
     }

@@ -27,7 +27,8 @@ function Login() {
       console.log(response.status)
       if (response.status === 200) {
         setIsLoggedIn(true);
-        console.log(isLoggedIn)
+        // localStorage.setItem("isLoggedIn", true);
+        // console.log(isLoggedIn)
         navigate("/")
       }
     }

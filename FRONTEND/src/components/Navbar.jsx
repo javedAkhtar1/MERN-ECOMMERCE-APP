@@ -7,7 +7,7 @@ import { loginContext } from "../context/LoginContextProvider";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isLoggedIn } = useContext(loginContext);
+  const { isLoggedIn, handleLogout } = useContext(loginContext);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -42,9 +42,9 @@ function Navbar() {
           <div className="md:flex hidden gap-6 font-Nunito">
             {isLoggedIn ? (
               <>
-                <Link to={"/logout"} className="hover:cursor-pointer hover:underline">
+                <button onClick={handleLogout} className="hover:cursor-pointer hover:underline">
                   Logout
-                </Link>
+                </button>
               </>
             ) : (
               <>
@@ -65,7 +65,7 @@ function Navbar() {
           <div className="md:hidden flex gap-4">
             {isLoggedIn ? (
               <>
-                <Link to={"/logout"} className="hover:cursor-pointer hover:underline">
+                <Link to={"/logout"} onClick={handleLogout} className="hover:cursor-pointer hover:underline">
                   Logout
                 </Link>
               </>

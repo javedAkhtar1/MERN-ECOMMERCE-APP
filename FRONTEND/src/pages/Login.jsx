@@ -10,8 +10,8 @@ import { loginContext } from "../context/LoginContextProvider";
 function Login() {
   const [user, setUser] = useState({email: "", password: ""});
   const [showPassword, setShowPassword] = useState(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { isLoggedIn, setIsLoggedIn } = useContext(loginContext)
+
+  const { setIsLoggedIn } = useContext(loginContext)
 
   const navigate = useNavigate()
 

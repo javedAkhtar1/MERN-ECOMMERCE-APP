@@ -5,9 +5,13 @@ import { useNavigate } from "react-router";
 export const loginContext = createContext();
 
 function LoginContextProvider({ children }) {
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
+
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
   });
+
 
   useEffect(() => {
     localStorage.setItem("isLoggedIn", isLoggedIn);
@@ -20,6 +24,8 @@ function LoginContextProvider({ children }) {
       const response = await axios.post("http://localhost:3000/logout");
       if (response.status == 200) {
         setIsLoggedIn(false)
+        setEmailErrorMessage("")
+        setPasswordErrorMessage("")
         localStorage.removeItem("isLoggedIn");
         navigate("/")
       }
@@ -31,7 +37,7 @@ function LoginContextProvider({ children }) {
   }
 
   return (
-    <loginContext.Provider value={{ isLoggedIn, setIsLoggedIn, handleLogout }}>
+    <loginContext.Provider value={{ isLoggedIn, setIsLoggedIn, handleLogout, emailErrorMessage, setEmailErrorMessage, passwordErrorMessage, setPasswordErrorMessage }}>
       {children}
     </loginContext.Provider>
   );

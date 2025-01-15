@@ -32,15 +32,15 @@ async function postLogin(req, res) {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "User not found" });
+      return res.status(400).json({ message: "User not found!" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Invalid password" });
+      return res.status(400).json({ message: "Invalid password!" });
     }
-    // const token = createToken(user._id);
-    // res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    const token = createToken(user._id);
+    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
 
     res.status(200).json({ message: "Login successful", user: user._id });
   } 
@@ -51,16 +51,13 @@ async function postLogin(req, res) {
 
 async function postLogout(req, res) {
   try {
-    // Clear the cookie
     res.cookie('jwt', '', {
       httpOnly: true,
-      expires: new Date(0) // Set the cookie to expire immediately
+      expires: new Date(0)
     });
-
-    // Respond with a success message
     res.status(200).json({ message: 'Logout successful' });
-  } catch (error) {
-    // Handle any errors
+  } 
+  catch (error) {
     res.status(500).json({ message: 'An error occurred while logging out' });
   }
 }

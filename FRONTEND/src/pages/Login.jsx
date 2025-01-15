@@ -11,7 +11,7 @@ function Login() {
   const [user, setUser] = useState({email: "", password: ""});
   const [showPassword, setShowPassword] = useState(false);
 
-  const { setIsLoggedIn } = useContext(loginContext)
+  const { setIsLoggedIn, emailErrorMessage, setEmailErrorMessage, passwordErrorMessage, setPasswordErrorMessage } = useContext(loginContext)
 
   const navigate = useNavigate()
 
@@ -27,14 +27,20 @@ function Login() {
       console.log(response.status)
       if (response.status === 200) {
         setIsLoggedIn(true);
-        // localStorage.setItem("isLoggedIn", true);
-        // console.log(isLoggedIn)
         navigate("/")
       }
     }
     catch (e) {
-      console.log("nothing happened")
-      console.log(e.message)
+      // console.log("nothing happened")
+      console.log(e.response.data.message);
+      if (e.response.data.message == "User not found") {
+        setEmailErrorMessage(e.response.data.message);
+        setPasswordErrorMessage('');
+      }
+      else {
+      setPasswordErrorMessage(e.response.data.message)
+      setEmailErrorMessage('')
+      }
     }
   }
 
@@ -61,7 +67,8 @@ function Login() {
               className="p-1 rounded-md select-none"
               autoComplete="off"
             />
-            
+            <p className="text-xs mt-1 text-red-600"> {`${emailErrorMessage}` } </p>
+
             <label htmlFor="message" className="mt-6">
               Password<span className="text-red-500">*</span>:
             </label>
@@ -85,6 +92,7 @@ function Login() {
                 {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
               </button>
             </div>
+            <p className="text-xs mt-1 text-red-600"> {`${passwordErrorMessage}` } </p>
 
             <button
               type="submit"

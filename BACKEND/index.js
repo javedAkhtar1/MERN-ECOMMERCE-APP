@@ -5,6 +5,7 @@
   const PORT = process.env.PORT || 3000;
   const connectToDB = require("./connect.js");
   const {postSignup, postLogin, postLogout} = require("./controllers/auth.controller.js")
+  const {postFeedback} = require("./controllers/feedback.controller.js")
   const cors = require("cors");
   const productRoutes = require("./routes/productsRoutes.js")
 
@@ -26,6 +27,7 @@
   app.post("/signup", postSignup)
   app.post("/login", postLogin)
   app.post("/logout", postLogout)
+  app.post("/feedback", postFeedback)
 
   app.listen(PORT, () => {
     console.log("server running at port: ", PORT);

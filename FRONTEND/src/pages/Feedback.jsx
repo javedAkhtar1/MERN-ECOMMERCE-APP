@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 function Feedback() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [feedback, setFeedback] = useState("");
-  const [rating, setRating] = useState(0);
-
+  const [feedback, setFeedback] = useState({user: "", email: "", message: "", rating: 0});
+  const navigate = useNavigate()
+  
   const handleStarClick = (value) => {
-    setRating(value); 
+    setFeedback({...feedback, rating: value}); 
   };
 
   const renderStars = () => {
@@ -19,7 +19,7 @@ function Feedback() {
         <span
           key={i}
           className={`cursor-pointer text-3xl ${
-            i <= rating ? "text-yellow-500" : "text-gray-300"
+            i <= feedback.rating ? "text-yellow-500" : "text-gray-300"
           }`}
           onClick={() => handleStarClick(i)}
         >
@@ -29,6 +29,20 @@ function Feedback() {
     }
     return stars;
   };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3000/feedback", feedback);
+      if (response.status === 201) {
+        window.alert("Feedback submitted successfully!");
+        navigate("/");
+      }
+    } catch (err) {
+      console.log("Feedback not submitted");
+      console.log(err.message);
+    }
+  }
 
   return (
     <>
@@ -43,17 +57,18 @@ function Feedback() {
             action=""
             method="POST"
             className="flex flex-col"
+            onSubmit={handleSubmit}
           >
-            <label htmlFor="username">
+            <label htmlFor="user">
               Your name<span className="text-red-500">*</span>:
             </label>
             <input
               type="text"
-              name="username"
-              id="username"
+              name="user"
+              id="user"
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={feedback.user}
+              onChange={(e) => setFeedback({...feedback, user: e.target.value})}
               className="p-1 rounded-md select-none"
               autoComplete="off"
             />
@@ -66,8 +81,8 @@ function Feedback() {
               name="email"
               id="email"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={feedback.email}
+              onChange={(e) => setFeedback({...feedback, email: e.target.value})}
               className="p-1 rounded-md select-none"
               autoComplete="off"
             />
@@ -85,9 +100,10 @@ function Feedback() {
             <textarea
               name="message"
               id="message"
+              maxLength={2000}
               required
-              value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
+              value={feedback.message}
+              onChange={(e) => setFeedback({...feedback, message: e.target.value})}
               className="p-1 rounded-md resize-none h-36 select-none"
               autoComplete="off"
             ></textarea>

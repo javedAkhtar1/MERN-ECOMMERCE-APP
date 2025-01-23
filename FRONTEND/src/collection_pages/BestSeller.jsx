@@ -4,16 +4,19 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import ShopProductCard from "../components/ShopProductCard.jsx";
 import { productsContext } from "../context/ProductsContextProvider.jsx";
+import SearchBar from "../components/SearchBar.jsx";
 
 function BestSeller() {
   const { ref: divRef, inView: divInView } = useInView({ triggerOnce: true });
-  const { products, loading } = useContext(productsContext);
+  const { filteredProducts, loading } = useContext(productsContext);
 
-  const bestSellerProducts = products.filter((p) => p.isBestSeller);
+  const bestSellerProducts = filteredProducts.filter((p) => p.isBestSeller);
 
   return (
     <>
       <Navbar />
+      <SearchBar />
+      {bestSellerProducts.length == 0 && <div className="text-center text-xl font-Nunito flex justify-center items-center h-[80vh]">Product not found!</div> }
       {loading ? (
         <div className="loading text-center mt-20 h-[100vh]">
           Loading products...

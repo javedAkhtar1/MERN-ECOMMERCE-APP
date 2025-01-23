@@ -4,16 +4,19 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import ShopProductCard from "../components/ShopProductCard.jsx";
 import { productsContext } from "../context/ProductsContextProvider.jsx";
+import SearchBar from "../components/SearchBar.jsx";
 
 function Mens() {
   const { ref: divRef, inView: divInView } = useInView({ triggerOnce: true });
-  const { products, loading } =  useContext(productsContext)
+  const { filteredProducts, loading } =  useContext(productsContext)
   
-  const mensProducts = products.filter((p) => p.category === "men")
+  const mensProducts = filteredProducts.filter((p) => p.category === "men")
 
   return (
     <>
       <Navbar />
+      <SearchBar />
+      {mensProducts.length == 0 && <div className="text-center text-xl font-Nunito flex justify-center items-center h-[80vh]">Product not found!</div> }
       {loading ? (
         <div className="loading text-center mt-20 h-[100vh]">Loading products...</div>
       ) : (

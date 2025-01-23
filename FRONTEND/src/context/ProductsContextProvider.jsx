@@ -6,6 +6,7 @@ export const productsContext = createContext();
 function ProductsContextProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,8 +23,13 @@ function ProductsContextProvider({ children }) {
     fetchProducts();
   }, []);
 
+  // it should be based on the tags of the products. tags array in schema
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(query)
+  );
+
   return (
-    <productsContext.Provider value={{ products, loading }}>
+    <productsContext.Provider value={{ products, filteredProducts, query, setQuery, loading}}>
       {children}
     </productsContext.Provider>
   );

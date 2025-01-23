@@ -67,7 +67,7 @@ function Login() {
               className="p-1 rounded-md select-none"
               autoComplete="off"
             />
-            <p className="text-xs mt-1 text-red-600"> {`${emailErrorMessage}` } </p>
+            <p className="text-xs mt-1 text-red-600"> {emailErrorMessage } </p>
 
             <label htmlFor="message" className="mt-6">
               Password<span className="text-red-500">*</span>:

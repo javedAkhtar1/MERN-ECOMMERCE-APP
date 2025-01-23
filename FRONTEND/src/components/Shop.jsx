@@ -4,17 +4,19 @@ import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import ShopProductCard from "./ShopProductCard.jsx";
 import { productsContext } from "../context/ProductsContextProvider.jsx";
+import SearchBar from "./SearchBar.jsx";
 
 function Shop() {
   const { ref: divRef, inView: divInView } = useInView({ triggerOnce: true });
-  const { products, loading } =  useContext(productsContext)
-  // console.log(products)
+  const { filteredProducts, loading } = useContext(productsContext);
 
   return (
     <>
       <Navbar />
+      <SearchBar />
+      {filteredProducts.length == 0 && <div className="text-center text-xl font-Nunito flex justify-center items-center h-[80vh]">Product not found!</div> }
       {loading ? (
-        <div className="loading text-center mt-20 h-[100vh]">Loading products...</div>
+        <div className="text-center mt-20 h-[100vh]">Loading products...</div>
       ) : (
         <div
           ref={divRef}
@@ -25,7 +27,7 @@ function Shop() {
           }}
           className="featured-products max-w-6xl px-5 grid grid-rows-2 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 mt-6 mx-auto justify-items-center gap-8"
         >
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <ShopProductCard key={product._id} product={product} />
           ))}
         </div>

@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 // import { products } from "../shop.js";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import { Link } from "react-router-dom";
 import { productsContext } from "../context/ProductsContextProvider.jsx";
+import { loginContext } from "../context/LoginContextProvider.jsx";
 
 function CompleteProduct() {
   const { id } = useParams();
   const { products } = useContext(productsContext);
+  const { isLoggedIn } = useContext(loginContext);
+
+  const navigate = useNavigate()
 
   const product = products.find((p) => p._id === id);
   const similarProducts = products
@@ -18,6 +22,14 @@ function CompleteProduct() {
 
   if (!product) {
     return <p>OOPS! Product not found!</p>;
+  }
+
+  const handleAddToCart = () => {
+    if (!isLoggedIn) {
+      navigate("/login")
+      return
+    }
+     
   }
 
   return (
@@ -49,7 +61,7 @@ function CompleteProduct() {
             <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
               Buy Now
             </button>
-            <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
+            <button onClick={handleAddToCart} className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
               Add to Cart
             </button>
           </div>

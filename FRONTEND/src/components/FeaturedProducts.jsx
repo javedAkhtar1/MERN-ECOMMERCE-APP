@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { featuredProducts } from "../featuredProducts.js";
 import FeaturedProductCard from "./FeaturedProductCard.jsx";
 import { useInView } from "react-intersection-observer";  
 import { productsContext } from "../context/ProductsContextProvider.jsx";

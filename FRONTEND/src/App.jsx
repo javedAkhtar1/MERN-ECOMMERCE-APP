@@ -24,6 +24,7 @@ import Kids from "./collection_pages/Kids.jsx";
 import Deals from "./collection_pages/Deals.jsx";
 import BestSeller from "./collection_pages/BestSeller.jsx";
 import LoginContextProvider from "./context/LoginContextProvider.jsx";
+import CartContextProvider from "./context/CartContextProvider.jsx";
 
 function App() {
   return (
@@ -35,29 +36,31 @@ function App() {
       <ScrollToTop />
       <LoginContextProvider>
         <ProductsContextProvider>
-          <Routes>
-            <Route path="/" element={<CompleteHome />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/returnpolicy" element={<ReturnPolicy />} />
-            <Route
-              path="/termsandconditions"
-              element={<TermsAndConditions />}
-            />
-            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/feedback" element={<Feedback />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/shop/product/:id" element={<CompleteProduct />} />
-            <Route path="/shop/trending" element={<Trending />}></Route>
-            <Route path="/shop/featured" element={<Featured />}></Route>
-            <Route path="/shop/men" element={<Mens />}></Route>
-            <Route path="/shop/women" element={<Womens />}></Route>
-            <Route path="/shop/kids" element={<Kids />}></Route>
-            <Route path="/shop/deals" element={<Deals />}></Route>
-            <Route path="/shop/bestseller" element={<BestSeller />}></Route>
-          </Routes>
+          <CartContextProvider>
+            <Routes>
+              <Route path="/" element={<CompleteHome />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/returnpolicy" element={<ReturnPolicy />} />
+              <Route
+                path="/termsandconditions"
+                element={<TermsAndConditions />}
+              />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/feedback" element={<Feedback />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/shop/product/:id" element={<CompleteProduct />} />
+              <Route path="/shop/trending" element={<Trending />}></Route>
+              <Route path="/shop/featured" element={<Featured />}></Route>
+              <Route path="/shop/men" element={<Mens />}></Route>
+              <Route path="/shop/women" element={<Womens />}></Route>
+              <Route path="/shop/kids" element={<Kids />}></Route>
+              <Route path="/shop/deals" element={<Deals />}></Route>
+              <Route path="/shop/bestseller" element={<BestSeller />}></Route>
+            </Routes>
+          </CartContextProvider>
         </ProductsContextProvider>
       </LoginContextProvider>
     </>

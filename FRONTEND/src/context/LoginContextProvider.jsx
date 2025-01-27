@@ -1,12 +1,15 @@
 import axios from "axios";
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router";
+import { cartContext } from "./CartContextProvider";
 
 export const loginContext = createContext();
 
 function LoginContextProvider({ children }) {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
+
+  const { setCartQuantity } = useContext(cartContext)
 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
@@ -26,6 +29,7 @@ function LoginContextProvider({ children }) {
         setIsLoggedIn(false)
         setEmailErrorMessage("")
         setPasswordErrorMessage("")
+        setCartQuantity(0)
         localStorage.removeItem("isLoggedIn");
         navigate("/")
       }

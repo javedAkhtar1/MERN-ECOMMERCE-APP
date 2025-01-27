@@ -34,9 +34,9 @@ function App() {
      <FeaturedProducts />
      <Footer /> */}
       <ScrollToTop />
-      <LoginContextProvider>
-        <ProductsContextProvider>
-          <CartContextProvider>
+      <CartContextProvider>
+        <LoginContextProvider>
+          <ProductsContextProvider>
             <Routes>
               <Route path="/" element={<CompleteHome />} />
               <Route path="/help" element={<Help />} />
@@ -60,9 +60,9 @@ function App() {
               <Route path="/shop/deals" element={<Deals />}></Route>
               <Route path="/shop/bestseller" element={<BestSeller />}></Route>
             </Routes>
-          </CartContextProvider>
-        </ProductsContextProvider>
-      </LoginContextProvider>
+          </ProductsContextProvider>
+        </LoginContextProvider>
+      </CartContextProvider>
     </>
   );
 }

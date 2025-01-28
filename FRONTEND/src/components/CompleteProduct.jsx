@@ -13,7 +13,7 @@ function CompleteProduct() {
   const { id } = useParams();
   const { products } = useContext(productsContext);
   const { isLoggedIn } = useContext(loginContext);
-  const { setCartQuantity } = useContext(cartContext);
+  const { setCartQuantity, addToCart, cart } = useContext(cartContext);
 
   const navigate = useNavigate();
 
@@ -32,7 +32,9 @@ function CompleteProduct() {
       return;
     }
     setCartQuantity((prev) => prev + 1)
+    addToCart(product)
   };
+  // console.log(cart)
 
   return (
     <>

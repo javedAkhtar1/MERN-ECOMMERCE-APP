@@ -25,6 +25,7 @@ import Deals from "./collection_pages/Deals.jsx";
 import BestSeller from "./collection_pages/BestSeller.jsx";
 import LoginContextProvider from "./context/LoginContextProvider.jsx";
 import CartContextProvider from "./context/CartContextProvider.jsx";
+import Cart from "./components/Cart.jsx";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
               <Route path="/shop/kids" element={<Kids />}></Route>
               <Route path="/shop/deals" element={<Deals />}></Route>
               <Route path="/shop/bestseller" element={<BestSeller />}></Route>
+              <Route path="/cart" element={<Cart />}></Route> {/* show "in cart" button if already added */}
             </Routes>
           </ProductsContextProvider>
         </LoginContextProvider>

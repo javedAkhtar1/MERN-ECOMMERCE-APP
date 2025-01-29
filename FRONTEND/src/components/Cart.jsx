@@ -14,7 +14,7 @@ function Cart() {
         Your Cart
       </h1>
       {cart.length === 0 && (
-          <div className="text-center text-xl font-Nunito flex justify-center mt-36 h-[80vh]">
+          <div className="text-center text-xl font-Nunito flex justify-center mt-36 h-[80%]">
             <p>Your cart is empty. <Link to={"/shop"} className="underline text-blue-800"> Go to Shop </Link> </p>
           </div>
         )}

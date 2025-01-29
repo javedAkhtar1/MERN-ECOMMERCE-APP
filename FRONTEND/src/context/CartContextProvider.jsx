@@ -9,11 +9,15 @@ function CartContextProvider({ children }) {
   function addToCart(product) {
     setCart((prevItems) => [...prevItems, product]);
   }
+  
+  function removeFromCart(productId) {
+    setCart((prevItems) => prevItems.filter(item => item._id !== productId));
+  }
 
   return (
     <>
       <cartContext.Provider
-        value={{ cart, setCart, cartQuantity, setCartQuantity, addToCart }}
+        value={{ cart, setCart, cartQuantity, setCartQuantity, addToCart, removeFromCart }}
       >
         {children}
       </cartContext.Provider>

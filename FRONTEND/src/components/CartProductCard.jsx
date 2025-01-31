@@ -4,7 +4,7 @@ import { cartContext } from "../context/CartContextProvider";
 
 function CartProductCard({ product }) {
   const [productQuantity, setProductQuantity] = useState(1)
-  const { removeFromCart, setCartQuantity } = useContext(cartContext)
+  const { removeFromCart, setCartQuantity, cartQuantity } = useContext(cartContext)
 
   function addQuantity() {
     setProductQuantity(prev => prev+1) 
@@ -15,6 +15,11 @@ function CartProductCard({ product }) {
     if (productQuantity === 1) return
     setProductQuantity(prev => prev-1) 
     setCartQuantity(prev => prev - 1)
+  }
+
+  function handleRemoveFromCart() {
+    removeFromCart(product._id)
+    setCartQuantity(cartQuantity - productQuantity)  // PRODUCT QUANTITY IS NOT PERSISTING... FIX
   }
 
   return (
@@ -31,7 +36,7 @@ function CartProductCard({ product }) {
       {/* <p className="text-[.8rem] max-w-44 truncate">{product.description}</p> */}
       <div className="flex lg:flex-row flex-col gap-3 lg:justify-between lg:items-center">
       <p className="mt-1 text-lg font-Rubik">Rs. {product.price}</p>
-      <button onClick={() => removeFromCart(product._id)} className="bg-gray-400 px-3 rounded-sm hover:bg-gray-300">Remove</button>
+      <button onClick={handleRemoveFromCart} className="bg-gray-400 px-3 rounded-sm hover:bg-gray-300">Remove</button>
       </div>
       <div className="flex justify-between font-Nunito mt-2">
       <button onClick={removeQuantity} className="bg-gray-400 px-3 rounded-sm hover:bg-gray-300">-</button>

@@ -26,13 +26,16 @@ function CompleteProduct() {
     return <p>OOPS! Product not found!</p>;
   }
 
+  const isInCart = cart.some((item) => item._id === product._id);
   const handleAddToCart = () => {
     if (!isLoggedIn) {
       navigate("/login");
       return;
     }
-    setCartQuantity((prev) => prev + 1)
-    addToCart(product)
+    if (!isInCart) {
+      setCartQuantity((prev) => prev + 1);
+      addToCart(product);
+    }
   };
   // console.log(cart)
 
@@ -65,12 +68,18 @@ function CompleteProduct() {
             <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
               Buy Now
             </button>
-            <button
-              onClick={handleAddToCart}
-              className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400"
-            >
-              Add to Cart
-            </button>
+            {isInCart ? (
+              <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-400 cursor-auto">
+                In Cart
+              </button>
+            ) : (
+              <button
+                onClick={handleAddToCart}
+                className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400"
+              >
+                Add to Cart
+              </button>
+            )}
           </div>
         </div>
         <div className="max-w-[250px] lg:flex lg:flex-col gap-4 p-5 hidden">

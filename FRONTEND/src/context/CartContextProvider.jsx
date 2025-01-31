@@ -7,7 +7,11 @@ function CartContextProvider({ children }) {
   const [cartQuantity, setCartQuantity] = useState(0);
 
   function addToCart(product) {
-    setCart((prevItems) => [...prevItems, product]);
+    setCart((prevItems) => {
+      const itemExists = prevItems.some((item) => item._id === product._id);
+      if (itemExists) return prevItems; 
+      return [...prevItems, product];
+    });
   }
   
   function removeFromCart(productId) {

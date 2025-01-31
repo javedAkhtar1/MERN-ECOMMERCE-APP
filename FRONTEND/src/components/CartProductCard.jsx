@@ -4,15 +4,17 @@ import { cartContext } from "../context/CartContextProvider";
 
 function CartProductCard({ product }) {
   const [productQuantity, setProductQuantity] = useState(1)
-  const { removeFromCart } = useContext(cartContext)
+  const { removeFromCart, setCartQuantity } = useContext(cartContext)
 
   function addQuantity() {
     setProductQuantity(prev => prev+1) 
+    setCartQuantity(prev => prev + 1)
   }
-
+  
   function removeQuantity() {
     if (productQuantity === 1) return
     setProductQuantity(prev => prev-1) 
+    setCartQuantity(prev => prev - 1)
   }
 
   return (

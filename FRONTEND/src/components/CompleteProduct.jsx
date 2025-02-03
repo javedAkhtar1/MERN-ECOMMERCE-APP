@@ -33,7 +33,7 @@ function CompleteProduct() {
       return;
     }
     if (!isInCart) {
-      setCartQuantity((prev) => prev + 1);
+      // setCartQuantity((prev) => prev + 1);
       addToCart(product);
     }
   };
@@ -116,7 +116,7 @@ function CompleteProduct() {
       <h1 className="text-center font-light mt-6 text-2xl font-Nunito text-red-900 border-b max-w-5xl mx-auto p-3">
         YOU MIGHT ALSO LIKE
       </h1>
-      <div className="max-w-5xl mx-auto p-5 pb-0 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-9">
+      <div className="max-w-5xl mx-auto p-5 pb-0 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-9 truncate">
         {similarProducts.map((product) => (
           <>
             <div className="flex flex-col gap-2 items-center">

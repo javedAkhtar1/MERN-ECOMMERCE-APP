@@ -15,7 +15,7 @@ function ShopProductCard({ product }) {
       return;
     }
     if (!isInCart) {
-      setCartQuantity((prev) => prev + 1);
+      // setCartQuantity((prev) => prev + 1); 
       addToCart(product);
     }
   };

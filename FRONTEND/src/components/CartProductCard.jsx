@@ -5,34 +5,24 @@ import { cartContext } from "../context/CartContextProvider";
 function CartProductCard({ product }) {
   const { removeFromCart, setCartQuantity, cartQuantity } = useContext(cartContext);
 
-  // Initialize product quantity from localStorage or default to 1
   const [productQuantity, setProductQuantity] = useState(() => {
     const storedQuantity = localStorage.getItem(`quantity_${product._id}`);
     return storedQuantity ? parseInt(storedQuantity) : 1;  // Default to 1 if not found
   });
 
-  // Update localStorage when the quantity changes
   useEffect(() => {
     localStorage.setItem(`quantity_${product._id}`, productQuantity);
   }, [productQuantity, product._id]);
 
-  // Function to add quantity
   function addQuantity() {
-    setProductQuantity((prev) => {
-      const newQuantity = prev + 1;
-      setCartQuantity((prevTotal) => prevTotal + 1);
-      return newQuantity;
-    });
+    setProductQuantity((prev) => prev + 1);
+    setCartQuantity((prev) => prev + 1)
   }
-
-  // Function to remove quantity
+  
   function removeQuantity() {
-    if (productQuantity === 1) return;  // Prevent going below 1
-    setProductQuantity((prev) => {
-      const newQuantity = prev - 1;
-      setCartQuantity((prevTotal) => prevTotal - 1);
-      return newQuantity;
-    });
+    if (productQuantity === 1) return;  
+    setProductQuantity((prev) => prev - 1);
+    setCartQuantity((prev) => prev - 1)
   }
 
   // Handle removing product from cart

@@ -33,7 +33,7 @@ function CartContextProvider({ children }) {
 
   function removeFromCart(productId) {  
     setCart((prevItems) => prevItems.filter(item => item._id !== productId));
-    setCartQuantity((prev) => (prev > 0 ? prev - 1 : 0));
+    // setCartQuantity((prev) => (prev > 0 ? prev - 1 : 0));
   }
 
   return (

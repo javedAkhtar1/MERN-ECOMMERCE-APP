@@ -40,16 +40,21 @@ function CartContextProvider({ children }) {
   
   function removeFromCart(product) {  
     setCart((previtems) => {
-      return previtems.filter((item) => item._id !== product._id)
+      const updatedCart = previtems.filter((item) => item._id !== product._id)
+      if (updatedCart.length === 0) {
+        setCartTotal(0)
+      }
+      return updatedCart
     })
-    setCartTotal((prev) => prev - product.price)
+    
+    // setCartTotal((prev) => prev - product.price)
     setCartQuantity((prev) => Math.max(prev - 1, 0));
   }
   
 
   return (
     <cartContext.Provider
-      value={{ cart, setCart, cartQuantity, setCartQuantity, addToCart, removeFromCart, cartTotal }}
+      value={{ cart, setCart, cartQuantity, setCartQuantity, addToCart, removeFromCart, cartTotal, setCartTotal }}
     >
       {children}
     </cartContext.Provider>

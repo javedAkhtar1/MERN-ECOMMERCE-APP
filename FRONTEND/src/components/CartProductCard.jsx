@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { cartContext } from "../context/CartContextProvider";
 
 function CartProductCard({ product }) {
-  const { removeFromCart, setCartQuantity, cartQuantity } = useContext(cartContext);
+  const { removeFromCart, setCartQuantity, cartQuantity, setCartTotal } = useContext(cartContext);
 
   const [productQuantity, setProductQuantity] = useState(() => {
     const storedQuantity = localStorage.getItem(`quantity_${product._id}`);
@@ -17,17 +17,20 @@ function CartProductCard({ product }) {
   function addQuantity() {
     setProductQuantity((prev) => prev + 1);
     setCartQuantity((prev) => prev + 1)
+    setCartTotal((prev) => prev + product.price)
   }
   
   function removeQuantity() {
     if (productQuantity === 1) return;  
     setProductQuantity((prev) => prev - 1);
     setCartQuantity((prev) => prev - 1)
+    setCartTotal((prev) => prev - product.price)
   }
 
   function handleRemoveFromCart() {
     removeFromCart(product);
     setCartQuantity((prev) => Math.max(0, prev - productQuantity));
+    setCartTotal((prev) => prev - product.price * productQuantity)
 
     // Remove the product quantity from localStorage
     localStorage.removeItem(`quantity_${product._id}`);

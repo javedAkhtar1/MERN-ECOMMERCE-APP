@@ -31,6 +31,7 @@ function CartProductCard({ product }) {
     removeFromCart(product);
     setCartQuantity((prev) => Math.max(0, prev - productQuantity));
     setCartTotal((prev) => prev - product.price * productQuantity)
+    setProductQuantity(1)
 
     // Remove the product quantity from localStorage
     localStorage.removeItem(`quantity_${product._id}`);

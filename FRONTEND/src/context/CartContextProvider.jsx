@@ -43,12 +43,13 @@ function CartContextProvider({ children }) {
       const updatedCart = previtems.filter((item) => item._id !== product._id)
       if (updatedCart.length === 0) {
         setCartTotal(0)
+        setCartQuantity(0)  
       }
       return updatedCart
     })
     
     // setCartTotal((prev) => prev - product.price)
-    setCartQuantity((prev) => Math.max(prev - 1, 0));
+    // setCartQuantity((prev) => Math.max(prev - 1, 0));
   }
   
 

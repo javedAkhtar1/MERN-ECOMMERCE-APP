@@ -14,11 +14,17 @@ function CartContextProvider({ children }) {
       : 0;
   });
 
-  // Save cart and cartQuantity to localStorage whenever they change
+  const [cartTotal, setCartTotal] = useState(() => {
+    return localStorage.getItem("cartTotal")
+      ? parseInt(localStorage.getItem("cartTotal"), 10)
+      : 0;
+  });
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     localStorage.setItem("cartQuantity", cartQuantity);
-  }, [cart, cartQuantity]);
+    localStorage.setItem("cartTotal", cartTotal);
+  }, [cart, cartQuantity, cartTotal]);
 
   function addToCart(product) {
     setCart((prevItems) => {
@@ -29,16 +35,21 @@ function CartContextProvider({ children }) {
     });
 
     setCartQuantity((prev) => prev + 1);
+    setCartTotal((prev) => prev + product.price)
   }
-
-  function removeFromCart(productId) {  
-    setCart((prevItems) => prevItems.filter(item => item._id !== productId));
-    // setCartQuantity((prev) => (prev > 0 ? prev - 1 : 0));
+  
+  function removeFromCart(product) {  
+    setCart((previtems) => {
+      return previtems.filter((item) => item._id !== product._id)
+    })
+    setCartTotal((prev) => prev - product.price)
+    setCartQuantity((prev) => Math.max(prev - 1, 0));
   }
+  
 
   return (
     <cartContext.Provider
-      value={{ cart, setCart, cartQuantity, setCartQuantity, addToCart, removeFromCart }}
+      value={{ cart, setCart, cartQuantity, setCartQuantity, addToCart, removeFromCart, cartTotal }}
     >
       {children}
     </cartContext.Provider>

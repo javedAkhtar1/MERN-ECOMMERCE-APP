@@ -25,9 +25,8 @@ function CartProductCard({ product }) {
     setCartQuantity((prev) => prev - 1)
   }
 
-  // Handle removing product from cart
   function handleRemoveFromCart() {
-    removeFromCart(product._id);
+    removeFromCart(product);
     setCartQuantity((prev) => Math.max(0, prev - productQuantity));
 
     // Remove the product quantity from localStorage

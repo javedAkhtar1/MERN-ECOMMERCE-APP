@@ -22,7 +22,7 @@ function Cart() {
           </p>
         </div>
       ) : (
-        <div className="md:flex min-h-[90vh] max-w-5xl mx-auto gap-[16rem] p-7 ">
+        <div className="md:flex min-h-[90vh] max-w-5xl mx-auto gap-[12rem] p-7 ">
           <div>
             <h1 className="text-3xl font-bold mt-5 text-center font-Nunito">
               Your Cart
@@ -42,6 +42,11 @@ function Cart() {
               <p>Total items: {cartQuantity}</p>
               <p>Total amount: Rs. {cartTotal}</p>
               <p>Estimated delivery time: 7 days</p>
+              <div className="flex flex-col">
+              <label htmlFor="address">Address line 1</label><input type="text"  />
+              <label htmlFor="address">Address line 2</label><input type="text"  />
+              <label htmlFor="address">Address line 3</label><input type="text" />
+              </div>
               <button className=" border-black px-4 py-1 bg-yellow-300 hover:bg-yellow-400 rounded w-full mt-3">
                 Checkout
               </button>

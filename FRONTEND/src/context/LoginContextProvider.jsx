@@ -9,7 +9,7 @@ function LoginContextProvider({ children }) {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
 
-  const { setCartQuantity } = useContext(cartContext)
+  const { setCartQuantity, setCart, setCartTotal } = useContext(cartContext)
 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
@@ -30,6 +30,8 @@ function LoginContextProvider({ children }) {
         setEmailErrorMessage("")
         setPasswordErrorMessage("")
         setCartQuantity(0)
+        setCartTotal(0)
+        setCart([])
         localStorage.removeItem("isLoggedIn");
         navigate("/")
       }

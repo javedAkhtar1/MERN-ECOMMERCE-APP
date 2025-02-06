@@ -7,7 +7,7 @@ function CartProductCard({ product }) {
 
   const [productQuantity, setProductQuantity] = useState(() => {
     const storedQuantity = localStorage.getItem(`quantity_${product._id}`);
-    return storedQuantity ? parseInt(storedQuantity) : 1;  // Default to 1 if not found
+    return storedQuantity ? parseInt(storedQuantity) : 1; 
   });
 
   useEffect(() => {
@@ -68,3 +68,4 @@ function CartProductCard({ product }) {
 }
 
 export default CartProductCard;
+  

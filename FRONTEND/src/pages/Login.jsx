@@ -8,7 +8,7 @@ import axios from "axios"
 import { loginContext } from "../context/LoginContextProvider";
 
 function Login() {
-  const [user, setUser] = useState({email: "", password: ""});
+  const [user, setUser] = useState({email: "ok@gmail.com", password: "111111"});
   const [showPassword, setShowPassword] = useState(false);
 
   const { setIsLoggedIn, emailErrorMessage, setEmailErrorMessage, passwordErrorMessage, setPasswordErrorMessage } = useContext(loginContext)

@@ -1,9 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../context/CartContextProvider";
+import { loginContext } from "../context/LoginContextProvider";
 
 function CartProductCard({ product }) {
   const { removeFromCart, setCartQuantity, cartQuantity, setCartTotal } = useContext(cartContext);
+  const {isLoggedIn} = useContext(loginContext)
 
   const [productQuantity, setProductQuantity] = useState(() => {
     const storedQuantity = localStorage.getItem(`quantity_${product._id}`);
@@ -11,8 +13,13 @@ function CartProductCard({ product }) {
   });
 
   useEffect(() => {
-    localStorage.setItem(`quantity_${product._id}`, productQuantity);
-  }, [productQuantity, product._id]);
+    if (!isLoggedIn) {
+      localStorage.removeItem(`quantity_${product._id}`);
+      setProductQuantity(1); // Reset state too
+    } else {
+      localStorage.setItem(`quantity_${product._id}`, productQuantity);
+    }
+  }, [isLoggedIn, product._id]);
 
   function addQuantity() {
     setProductQuantity((prev) => prev + 1);

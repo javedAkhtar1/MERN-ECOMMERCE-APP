@@ -22,12 +22,12 @@ function Cart() {
           </p>
         </div>
       ) : (
-        <div className="md:flex min-h-[90vh] max-w-5xl mx-auto gap-[12rem] p-7 ">
+        <div className="lg:flex md:min-h-[90vh] max-w-5xl mx-auto lg:gap-[12rem] gap-3 p-7 ">
           <div>
             <h1 className="text-3xl font-bold mt-5 text-center font-Nunito">
               Your Cart
             </h1>
-            <div className="min-h-[100vh] featured-products max-w-6xl px-5 grid grid-rows-2 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 grid-cols-1 mt-6 mx-auto justify-items-center gap-8">
+            <div className="lg:min-h-[100vh] featured-products max-w-6xl px-5 grid grid-rows-1 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 grid-cols-1 mt-6 mx-auto justify-items-center gap-8">
               {cart.map((item) => {
                 return <CartProductCard key={item._id} product={item} />;
               })}
@@ -42,10 +42,10 @@ function Cart() {
               <p>Total items: {cartQuantity}</p>
               <p>Total amount: Rs. {cartTotal}</p>
               <p>Estimated delivery time: 7 days</p>
-              <div className="flex flex-col">
-              <label htmlFor="address">Address line 1</label><input type="text"  />
-              <label htmlFor="address">Address line 2</label><input type="text"  />
-              <label htmlFor="address">Address line 3</label><input type="text" />
+              <div className="flex flex-col mt-3 gap-1">
+              <label htmlFor="address">Address line 1</label><input type="text" className="border border-gray-400 rounded-sm" />
+              <label htmlFor="address">Address line 2</label><input type="text" className="border border-gray-400 rounded-sm" />
+              <label htmlFor="address">Address line 3</label><input type="text" className="border border-gray-400 rounded-sm" />
               </div>
               <button className=" border-black px-4 py-1 bg-yellow-300 hover:bg-yellow-400 rounded w-full mt-3">
                 Checkout

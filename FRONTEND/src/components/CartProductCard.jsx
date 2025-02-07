@@ -15,8 +15,9 @@ function CartProductCard({ product }) {
   useEffect(() => {
     if (!isLoggedIn) {
       localStorage.removeItem(`quantity_${product._id}`);
-      setProductQuantity(1); // Reset state too
-    } else {
+      setProductQuantity(1);
+    } 
+    else {
       localStorage.setItem(`quantity_${product._id}`, productQuantity);
     }
   }, [isLoggedIn, product._id]);

@@ -4,10 +4,34 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CartProductCard from "./CartProductCard";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Cart() {
   const { cart, cartQuantity, cartTotal } = useContext(cartContext);
   // const [cartTotal, setCartTotal] = useState(0);
+
+  async function getSessionID() {
+    try {
+      const res = await axios.get("http://localhost:3000/checkout")
+      if (res.data && res.data.payment_session_id) {
+        console.log(res.data)
+      }
+    }
+    catch (e) {
+      console.log("payment failed", e)
+    }
+  }
+
+  async function makePayment(e) {
+    e.preventDefault()
+    try {
+      const response = await getSessionID()
+      // console.log(response)
+    }
+    catch (e) {
+      console.log("Payment failed!", e)
+    }
+  }
 
   return (
     <>
@@ -43,11 +67,11 @@ function Cart() {
               <p>Total amount: Rs. {cartTotal}</p>
               <p>Estimated delivery time: 7 days</p>
               <div className="flex flex-col mt-3 gap-1">
-              <label htmlFor="address">Address line 1</label><input type="text" className="border border-gray-400 rounded-sm" />
-              <label htmlFor="address">Address line 2</label><input type="text" className="border border-gray-400 rounded-sm" />
-              <label htmlFor="address">Address line 3</label><input type="text" className="border border-gray-400 rounded-sm" />
+              <label htmlFor="address">Address line 1</label><input type="text" className="border border-gray-400 rounded-sm px-1" />
+              <label htmlFor="address">Address line 2</label><input type="text" className="border border-gray-400 rounded-sm px-1" />
+              <label htmlFor="address">Address line 3</label><input type="text" className="border border-gray-400 rounded-sm px-1" />
               </div>
-              <button className=" border-black px-4 py-1 bg-yellow-300 hover:bg-yellow-400 rounded w-full mt-3">
+              <button onClick={makePayment} className=" border-black px-4 py-1 bg-yellow-300 hover:bg-yellow-400 rounded w-full mt-3">
                 Checkout
               </button>
             </div>

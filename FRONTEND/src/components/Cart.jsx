@@ -1,20 +1,33 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { cartContext } from "../context/CartContextProvider";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CartProductCard from "./CartProductCard";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {load} from "@cashfreepayments/cashfree-js"
 
 function Cart() {
   const { cart, cartQuantity, cartTotal } = useContext(cartContext);
   // const [cartTotal, setCartTotal] = useState(0);
 
+  let cashfree;
+  let initializeSDK = async function() {
+      cashfree = await load({
+        mode: "sandbox",
+      })
+  }
+  initializeSDK()
+
+  const [orderId, setOrderId] = useState("")
+
   async function getSessionID() {
     try {
       const res = await axios.get("http://localhost:3000/checkout")
       if (res.data && res.data.payment_session_id) {
-        console.log(res.data)
+        // console.log(res.data)
+        setOrderId(res.data.order_id)
+        return res.data.payment_session_id
       }
     }
     catch (e) {
@@ -22,11 +35,35 @@ function Cart() {
     }
   }
 
+  async function verifyPayment(orderId) {
+    try {
+      let res = await axios.post("http://localhost:3000/verify", {
+        orderId: orderId
+      })
+      
+      if (res && res.data) {
+        alert("Payment verified")
+      }
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
   async function makePayment(e) {
     e.preventDefault()
     try {
-      const response = await getSessionID()
-      // console.log(response)
+      let sessionId = await getSessionID()
+      let checkoutOptions = {
+        paymentSessionId: sessionId,
+        redirectTarget: "_modal"
+      }
+      cashfree.checkout(checkoutOptions).then((res) => {
+        console.log("Payment initialized")
+
+        verifyPayment(orderId)
+      })
+
     }
     catch (e) {
       console.log("Payment failed!", e)

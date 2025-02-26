@@ -42,4 +42,18 @@ async function getCheckout(req, res) {
   }
 }
 
-module.exports = {getCheckout}
+async function postVerify(req, res) {
+    try {
+        // const {orderId} = req.body
+        Cashfree.PGOrderFetchPayments("2025-01-01", req.body.orderId).then((response) => {
+            res.json(response.data)
+        }).catch(err => {
+            console.log(err)
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = {getCheckout, postVerify}

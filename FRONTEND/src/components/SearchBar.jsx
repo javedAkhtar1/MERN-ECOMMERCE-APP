@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { Search } from "@material-ui/icons";
+import SearchIcon from "@mui/icons-material/Search";
 import { productsContext } from "../context/ProductsContextProvider.jsx";
 
 function SearchBar() {
@@ -36,7 +36,7 @@ function SearchBar() {
         className="border border-gray-400 border-l-0 rounded-r-sm px-1 bg-gray-200 hover:bg-gray-300 flex items-center"
         onClick={handleSearch}
       >
-        <Search />
+        <SearchIcon />
       </button>
     </div>
   );

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['@material-ui/icons/Search'],
+      external: ['@material-ui/icons']
     }
   }
 })

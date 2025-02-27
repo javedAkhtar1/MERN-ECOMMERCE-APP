@@ -1,11 +1,5 @@
 {
   "dependencies": {
     "@material-ui/icons": "^4.11.3"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
   }
 }

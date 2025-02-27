@@ -9,10 +9,9 @@ import {load} from "@cashfreepayments/cashfree-js"
 
 function Cart() {
   const { cart, cartQuantity, cartTotal } = useContext(cartContext);
-  // const [cartTotal, setCartTotal] = useState(0);
 
   let cashfree;
-  let initializeSDK = async function() {
+  const initializeSDK = async function() {
       cashfree = await load({
         mode: "sandbox",
       })
@@ -23,9 +22,8 @@ function Cart() {
 
   async function getSessionID() {
     try {
-      const res = await axios.get("http://localhost:3000/checkout")
+      const res = await axios.get(`http://localhost:3000/checkout?amount=${cartTotal}`)
       if (res.data && res.data.payment_session_id) {
-        // console.log(res.data)
         setOrderId(res.data.order_id)
         return res.data.payment_session_id
       }
@@ -38,7 +36,7 @@ function Cart() {
   async function verifyPayment(orderId) {
     try {
       let res = await axios.post("http://localhost:3000/verify", {
-        orderId: orderId
+        orderId: orderId,
       })
       
       if (res && res.data) {

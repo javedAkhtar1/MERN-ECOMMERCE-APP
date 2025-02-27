@@ -16,8 +16,14 @@ async function generateOrderId() {
 
 async function getCheckout(req, res) {
   try {
+    const amount = parseFloat(req.query.amount); // Extract amount from query params
+
+    if (!amount || isNaN(amount) || amount <= 0) {
+      return res.status(400).json({ error: "Invalid amount" });
+    }
+
     let request = {
-      order_amount: 1.0,
+      order_amount: amount, // Use the dynamic amount from the frontend
       order_currency: "INR",
       order_id: await generateOrderId(),
       customer_details: {
@@ -35,12 +41,15 @@ async function getCheckout(req, res) {
       })
       .catch((e) => {
         console.log(e.response.data.message);
+        res.status(500).json({ error: e.response.data.message });
       });
   } 
   catch (error) {
     console.log(error);
+    res.status(500).json({ error: "Server error" });
   }
 }
+
 
 async function postVerify(req, res) {
     try {

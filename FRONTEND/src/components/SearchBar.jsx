@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { Search } from "@material-ui/icons";
+import { Search } from "@material-ui/icons/Search";
 import { productsContext } from "../context/ProductsContextProvider.jsx";
 
 function SearchBar() {

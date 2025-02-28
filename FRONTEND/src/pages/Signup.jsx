@@ -7,9 +7,15 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axios from "axios"
 
 function Signup() {
-    const [newUser, setNewuser] = useState({username: "", email: "", password: ""})
+    const [newUser, setNewuser] = useState({username: "testuser", email: `${getRandomTestEmail()}@gmail.com`, password: "12345678"})
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
+
+    function getRandomTestEmail() {
+      const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+      return Array.from({ length: 6 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+    }
+    console.log(getRandomTestEmail())
 
     const toggleShowPassword = (e) => {
       e.preventDefault();

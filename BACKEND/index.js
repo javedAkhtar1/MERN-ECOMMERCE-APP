@@ -15,7 +15,7 @@ const productRoutes = require("./routes/productsRoutes.js");
 const {getCheckout, postVerify} = require("./controllers/payment.controller.js")
 
 
-app.use(cors({ origin: "https://mern-ecommerce-app-final.onrender.com", credentials: true }));
+app.use(cors({ origin: "https://shoppenta.netlify.app", credentials: true }));
 
 connectToDB();
 

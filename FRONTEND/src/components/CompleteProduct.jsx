@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState   } from "react";
 import { useNavigate, useParams } from "react-router";
 // import { products } from "../shop.js";
 import Navbar from "./Navbar.jsx";
@@ -8,12 +8,14 @@ import { Link } from "react-router-dom";
 import { productsContext } from "../context/ProductsContextProvider.jsx";
 import { loginContext } from "../context/LoginContextProvider.jsx";
 import { cartContext } from "../context/CartContextProvider.jsx";
+import axios from "axios";
+import {load} from "@cashfreepayments/cashfree-js"
 
 function CompleteProduct() {
   const { id } = useParams();
   const { products } = useContext(productsContext);
   const { isLoggedIn } = useContext(loginContext);
-  const { setCartQuantity, addToCart, cart } = useContext(cartContext);
+  const { addToCart, cart } = useContext(cartContext);
 
   const navigate = useNavigate();
 
@@ -33,11 +35,73 @@ function CompleteProduct() {
       return;
     }
     if (!isInCart) {
-      // setCartQuantity((prev) => prev + 1);
       addToCart(product);
     }
   };
-  // console.log(cart)
+
+  let cashfree;
+  const initializeSDK = async function() {
+      cashfree = await load({
+        mode: "sandbox",
+      })
+  }
+  initializeSDK()
+
+  const [orderId, setOrderId] = useState("")
+
+  async function getSessionID() {
+    try {
+      const res = await axios.get(`http://localhost:3000/checkout?amount=${product.price}`)
+      if (res.data && res.data.payment_session_id) {
+        setOrderId(res.data.order_id)
+        return res.data.payment_session_id
+      }
+    }
+    catch (e) {
+      console.log("payment failed", e)
+    }
+  }
+
+  async function verifyPayment(orderId) {
+    try {
+      let res = await axios.post("http://localhost:3000/verify", {
+        orderId: orderId,
+      })
+      
+      if (res && res.data) {
+        alert("Payment verified")
+      }
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  async function makePayment(e) {
+    e.preventDefault()
+    
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    try {
+      let sessionId = await getSessionID()
+      let checkoutOptions = {
+        paymentSessionId: sessionId,
+        redirectTarget: "_modal"
+      }
+      cashfree.checkout(checkoutOptions).then((res) => {
+        console.log("Payment initialized")
+
+        verifyPayment(orderId)
+      })
+
+    }
+    catch (e) {
+      console.log("Payment failed!", e)
+    }
+  }
 
   return (
     <>
@@ -65,7 +129,7 @@ function CompleteProduct() {
             </span>
           </p>
           <div className="flex flex-col gap-4 mt-10">
-            <button className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
+            <button onClick={makePayment} className="font-Nunito border py-3 rounded-sm text-md bg-gray-300 hover:bg-gray-400">
               Buy Now
             </button>
             {isInCart ? (

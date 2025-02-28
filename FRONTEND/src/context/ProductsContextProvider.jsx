@@ -11,7 +11,7 @@ function ProductsContextProvider({ children }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://mern-ecommerce-app-5.onrender.com/api/products");
+        const response = await axios.get("http://localhost:3000/api/products");
         setProducts(response.data);
         setLoading(false);
       } 

@@ -5,7 +5,7 @@ import { loginContext } from "../context/LoginContextProvider";
 
 function ShopProductCard({ product }) {
   const navigate = useNavigate()
-  const { addToCart, cart, setCartQuantity } = useContext(cartContext);
+  const { addToCart, cart} = useContext(cartContext);
   const {isLoggedIn} = useContext(loginContext)
   
   const isInCart = cart.some((item) => item._id === product._id);
@@ -15,7 +15,6 @@ function ShopProductCard({ product }) {
       return;
     }
     if (!isInCart) {
-      // setCartQuantity((prev) => prev + 1); 
       addToCart(product);
     }
   };

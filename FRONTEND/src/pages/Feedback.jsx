@@ -33,7 +33,7 @@ function Feedback() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/feedback", feedback);
+      const response = await axios.post("https://mern-ecommerce-app-final.onrender.com/feedback", feedback);
       if (response.status === 201) {
         window.alert("Feedback submitted successfully!");
         navigate("/");

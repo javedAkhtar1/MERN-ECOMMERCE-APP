@@ -25,7 +25,7 @@ function Signup() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post("http://localhost:3000/signup", newUser)
+        const response = await axios.post("https://mern-ecommerce-app-final.onrender.com/signup", newUser)
         if (response.status === 201) {
           window.alert("Signup successful!")
           navigate("/login")

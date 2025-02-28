@@ -22,7 +22,7 @@ function Cart() {
 
   async function getSessionID() {
     try {
-      const res = await axios.get(`http://localhost:3000/checkout?amount=${cartTotal}`)
+      const res = await axios.get(`https://mern-ecommerce-app-final.onrender.com/checkout?amount=${cartTotal}`)
       if (res.data && res.data.payment_session_id) {
         setOrderId(res.data.order_id)
         return res.data.payment_session_id
@@ -35,7 +35,7 @@ function Cart() {
 
   async function verifyPayment(orderId) {
     try {
-      let res = await axios.post("http://localhost:3000/verify", {
+      let res = await axios.post("https://mern-ecommerce-app-final.onrender.com/verify", {
         orderId: orderId,
       })
       

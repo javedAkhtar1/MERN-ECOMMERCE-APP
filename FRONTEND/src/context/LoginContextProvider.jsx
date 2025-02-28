@@ -24,7 +24,7 @@ function LoginContextProvider({ children }) {
 
   async function handleLogout() {
     try {
-      const response = await axios.post("http://localhost:3000/logout");
+      const response = await axios.post("https://mern-ecommerce-app-final.onrender.com/logout");
       if (response.status == 200) {
         setIsLoggedIn(false)
         setEmailErrorMessage("")

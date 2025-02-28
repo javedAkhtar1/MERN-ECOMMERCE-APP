@@ -1,10 +1,8 @@
-import React from 'react'
-import Penta from './complete_app/Penta'
+import React from "react";
+import Penta from "./complete_app/Penta";
 
 function App() {
-  return (
-    <Penta />
-  )
+  return <Penta />;
 }
 
-export default App
+export default App;

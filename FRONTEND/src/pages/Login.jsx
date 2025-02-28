@@ -23,7 +23,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/login", user)
+      const response = await axios.post("https://mern-ecommerce-app-final.onrender.com/login", user)
       console.log(response.status)
       if (response.status === 200) {
         setIsLoggedIn(true);

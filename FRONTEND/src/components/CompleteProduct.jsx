@@ -51,7 +51,7 @@ function CompleteProduct() {
 
   async function getSessionID() {
     try {
-      const res = await axios.get(`http://localhost:3000/checkout?amount=${product.price}`)
+      const res = await axios.get(`https://mern-ecommerce-app-final.onrender.com/checkout?amount=${product.price}`)
       if (res.data && res.data.payment_session_id) {
         setOrderId(res.data.order_id)
         return res.data.payment_session_id

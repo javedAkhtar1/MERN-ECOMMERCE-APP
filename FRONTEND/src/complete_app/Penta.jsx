@@ -55,7 +55,7 @@ function Penta() {
               <Route path="/shop/deals" element={<Deals />}></Route>
               <Route path="/shop/bestseller" element={<BestSeller />}></Route>
               <Route path="/cart" element={ <ProtectedRoute> <Cart /> </ProtectedRoute>}></Route> {/* show "in cart" button if already added */}
-              <Route path="/*" element={<NotFound />}></Route>
+              <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </ProductsContextProvider>
         </LoginContextProvider>

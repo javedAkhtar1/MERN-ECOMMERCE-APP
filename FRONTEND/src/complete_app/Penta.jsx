@@ -23,6 +23,7 @@ import LoginContextProvider from "../context/LoginContextProvider.jsx";
 import CartContextProvider from "../context/CartContextProvider.jsx";
 import Cart from "../components/Cart.jsx";
 import ProtectedRoute from "../routes/ProtectedRoute.jsx";
+import NotFound from "../components/NotFound.jsx";
 
 function Penta() {
   return (
@@ -54,6 +55,7 @@ function Penta() {
               <Route path="/shop/deals" element={<Deals />}></Route>
               <Route path="/shop/bestseller" element={<BestSeller />}></Route>
               <Route path="/cart" element={ <ProtectedRoute> <Cart /> </ProtectedRoute>}></Route> {/* show "in cart" button if already added */}
+              <Route path="/*" element={<NotFound />}></Route>
             </Routes>
           </ProductsContextProvider>
         </LoginContextProvider>

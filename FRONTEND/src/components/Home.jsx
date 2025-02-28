@@ -17,7 +17,7 @@ function Home() {
       >
         <section className="relative">
           <img
-            src="../public/assets/home.jpg"
+            src="./assets/home.jpg"
             alt="home-image"
             className="h-[540px] w-full object-fill"
           />
